@@ -25,15 +25,15 @@ for high capacity transport vehicules typically used in interurban travel. When
 a sufficient potential ticket sale income for a given time departure between,
 say, A and B is reached, a transport provider can chip-in and emit an offer.
 Potential passengers who have previously stated what would be an acceptable
-timeframe and price for them are sent a message of availability. They are given
-a limited time to either accept or reject it. At the other side, the transport
-provider is informed of the guaranteed minimum  sales from passengers who
-accepted the offer and have also a limited time to accept it. From that moment
-the deal is closed, the seats are reserved and the money is transferred. The
-transport provider can then sell the remaining seats --if any, at its
+timeframe and price for them contacted. They are given a limited time to either
+accept or reject the offer. At the other side, the transport provider is informed of
+the guaranteed minimum sales from the passengers who accepted the offer. From the
+moment he accepts, the deal is closed, the seats are reserved and the money is transferred.
+The transport provider can then sell the remaining seats --if any, at its
 convenience, until the scheduld departing time. Such a system gets its value
 from a network effet: the more people use it, the more useful it becomes. So
-the potential for growth is explosive. 
+the potential for growth is
+explosive. 
 
 5) 
 If you find this project interesting or have some suggestions or comments,
