@@ -1,0 +1,42 @@
+1) 
+Mary lives in Alphaville and wants to attend a family gathering in Brghtown on
+next Sunday at 1 pm.  She consults the bus schedule but the only departures
+are at 6 am and 2 pm. Either she has to get up at an impossible hour and
+face a long wait in a dismal bus terminal, or be late for the event.
+Maybe there is not even a bus service between Alphaville and Brightown. Mary
+can't rely on car pooling, and a taxi would be prohibitively expensive.
+
+2)
+Meanwhile, John, an hospital worker, must start his workshift at 12:00 pm in
+Clark-City, which happens to be on the way to Brightown. He faces the same
+problem as Mary, only more acutely because his timeframe is narrower.  For
+Mary, traveling one hour or two earlier would be acceptable. Not for John.
+However they both agree that a departure between 11:00 am and 11:30 am would be
+acceptable. And so has many hundreds others with different travel time windows
+to either B or C or any town in-between (who are forced to either adapt to a
+very inconvenient schedule or stay home). 
+
+3)
+What if we could gather all those people and offer them a ride closer to their
+desired schedule at a price varying according to their level of emergency?
+
+4) 
+This is what Bid-n-go do. You can imagine it as a ride-sharing app but designed
+for high capacity transport vehicules typically used in interurban travel. When
+a sufficient potential ticket sale income for a given time departure between,
+say, A and B is reached, a transport provider can chip-in and emit an offer.
+Potential passengers who have previously stated what would be ans acceptable
+timeframe and price for them are sent a message of availability. They are given
+a limited time to either accept or reject it. At the other side, the transport
+provider is informed of the guaranteed minimum  sales from passengers who
+accepted the offer and have also a limited time to accept it. From that moment
+the deal is closed, the seats are reserved and the money is transferred. The
+transport provider can then sell the remaining seats --if any, at its
+convenience, until the scheduld departing time. Such a system gets its value
+from a network effet: the more people use it, the more useful it becomes. So
+the potential for growth is explosive. 
+
+5) 
+If you find this project interesting or have some suggestions or comments,
+please contact me.
+
