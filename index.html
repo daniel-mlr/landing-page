@@ -5,6 +5,7 @@
   <title>Bid-n-Go Reservation Software</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bid-n-Go is an auction software for buying usage time of resources that can only be offered in lump">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 </head>
 <body>
   <header id="header">
@@ -18,11 +19,22 @@
     </nav>
   </header>
   <main>
-    <p>Paragraphe</p>	
-    <section> <h3>Titre section 1</h3><p>Lorem ipsum ...</p></section>
-    <section> <h3>Titre section 2</h3><p>Lorem ipsum ...</p></section>
-    <section> <h3>Titre section 3</h3><p>Lorem ipsum ...</p></section>
-    <section> <h3>Write us </h3>
+    <section class="hero">
+      <img src="img/map_ouest_bleue_luminosite.jpg" alt="map">
+      <p>Paragraphe</p>	
+    </section>
+    <section id="presentation">
+      <video id="video" width="480" height="360" controls="controls" >
+        <source  
+          src="https://res.cloudinary.com/danielmeilleurimg/video/upload/v1531345295/landing_page/bid-n-go-short.mp4"
+          type="video/mp4"
+          />
+      </video>
+    </section>
+    <section><h3>Titre section 1</h3><p>Lorem ipsum ...</p></section>
+    <section><h3>Titre section 2</h3><p>Lorem ipsum ...</p></section>
+    <section><h3>Titre section 3</h3><p>Lorem ipsum ...</p></section>
+    <section><h3>Write us </h3>
       <form id="form" action="https://www.freecodecamp.com/email-submit">
         <input type="email" id="email"/>
         <input type="submit" id="submit" value="Send"/>
