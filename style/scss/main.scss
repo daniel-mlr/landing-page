@@ -1,0 +1,26 @@
+@import 'settings';
+@import 'base';
+
+
+// test seulement: ce fichier ne sert qu'à importer les partials
+
+#header {
+  background-color: $light-grey;
+  display: flex;
+
+  h1 {
+    margin: 0px;
+    color: $graph-node;
+    // font-size: $l-size;
+    padding: 0 $m-size;
+  }
+}
+#titres {
+  display: flex;
+  // flex-direction: column;  // pour phones
+}
+#logo {
+  height: 50px;
+  width: 70px;
+  padding: 5px;
+}

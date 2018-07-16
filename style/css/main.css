@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  color: #333333;
+  line-height: 1.4; }
+
+button {
+  cursor: pointer; }
+
+button:disabled {
+  cursor: default; }
+
+.is-active {
+  font-weight: bold; }
+
+#header {
+  background-color: #eee;
+  display: flex; }
+  #header h1 {
+    margin: 0px;
+    color: #A5C0C8;
+    padding: 0 1.6rem; }
+
+#titres {
+  display: flex; }
+
+#logo {
+  height: 50px;
+  width: 70px;
+  padding: 5px; }

@@ -1,0 +1,26 @@
+// sélecteur universel
+* {
+  box-sizing: border-box; // size=final size
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+  color: $dark-grey;
+  line-height: 1.4;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+// liens menu
+.is-active {
+  font-weight: bold;
+}
