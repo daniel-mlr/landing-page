@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box; // size=final size
 }
-
 html {
   font-size: 62.5%;
 }
@@ -23,4 +22,7 @@ button:disabled {
 // liens menu
 .is-active {
   font-weight: bold;
+}
+.anchor {
+  padding-top: 30px;
 }

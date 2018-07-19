@@ -1,0 +1,41 @@
+#jumbo {
+  // display: flex;
+  // flex-direction: column;
+  // position: relative;
+  height: 100vh;
+  background-image:url('../../img/map_ouest_bleue_luminosite.jpg');
+  // background-size: cover;
+  background-position: left top;
+  .accroches {
+    font-family: 'Faster One', cursive;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 20vh;
+    font-size: $xl-size;
+  }
+  #bid {
+    // color: blue;
+  }
+  #match {
+    //color: blue;
+    top: 30vh;
+    align-content: center;
+  }
+  #go {
+    left: 20vw;
+    top: 50vh;
+  }
+  @media (max-width: 536px) {
+    .accroches {
+      font-size: $l-size;
+    }
+    #match {left: 0}
+    #go {left: 0}
+  }
+  button {
+    position: absolute;
+    top: 80vh;
+  }
+}
+

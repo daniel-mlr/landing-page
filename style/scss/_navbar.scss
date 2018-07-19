@@ -1,0 +1,55 @@
+.topnav {
+  overflow: visible;
+  background-color: $light-grey;
+}
+a.active {
+  font-weight: bold;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 6px 6px;
+  text-decoration: none;
+  font-size: $m-size;
+  color: darken($graph-node-color, 25%);
+}
+.topnav a:hover {
+  background-color: darken($light-grey, 15%);
+  color: white;
+}
+.topnav .menu-icon {
+  display: none;
+}
+@media screen and (max-width: 855px) {
+  // a:not(:first-child) {display: none;}
+  .topnav {
+    align-self: start;
+    // test
+    padding-right: 20px;
+  }
+  .topnav a {display: none;}
+  .topnav a.menu-icon {
+    float: right;
+    display: block;
+    // test 2 lignes suivantes
+    position: relative;
+    right: -20px;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .responsive a.navlink {position: relative;}
+  .responsive a.menu-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .responsive a.navlink {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+

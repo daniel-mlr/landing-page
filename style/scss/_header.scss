@@ -1,0 +1,43 @@
+#header {
+  position: sticky;
+  top: 0;
+  background-color: $light-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  z-index: 10;
+
+  #titres {
+    display: flex;
+    align-items: center;
+    a {
+      text-decoration: none;
+    }
+    #logo_bidngo {
+      background-color: darken($light-grey, 5%);
+      display: flex;
+      align-items: center;
+      #logo {
+        height: 50px;
+        width: 70px;
+        padding: 5px;
+      }
+      h1 {
+        margin: 0px;
+        color: $graph-edge-color;
+        padding: 0 $m-size;
+      }
+    }
+    @media (max-width: 536px) {
+      h2 {
+        display: none;
+      }
+    }
+    h2 {
+      font-size: $m-size;
+      color: darken($graph-node-color, 20%);
+      margin: 0 10px 0 10px;
+    }
+  }
+}

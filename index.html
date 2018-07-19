@@ -5,31 +5,39 @@
   <title>Bid-n-Go Reservation Software</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bid-n-Go is an auction software for buying usage time of resources that can only be offered in lump">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href="style/css/main.css">
+  <link rel="stylesheet" type="text/css" href="style/css/main.css?v=7">
 </head>
 <body>
   <header id="header">
-    <img id="logo" src="img/logo1.svg.png" alt="Logo" width="150" height="100">
     <div id="titres">
-      <h1>Bid-n-Go</h1>
-      <h2>Collective on-demand Ride Sharing System</h2>
+      <a href="#">
+        <div id="logo_bidngo">
+          <img id="logo" src="img/logo1.svg.png" alt="Logo" width="150" height="100">
+          <h1>Bid&#8209;n&#8209;Go</h1>
+        </div>
+      </a>
+        <h2>Collective on-demand Ride Sharing System</h2>
     </div>
-    <nav id="nav-bar">
-      <a class="navlink" href="#">How it works</a>
-      <a class="navlink" href="#">Benefits</a>
-      <a class="navlink" href="#">Contact</a>
+    <nav class="topnav" id="nav-bar">
+      <a class="navlink" href="#howitworks">How it works</a>
+      <a class="navlink" href="#benefits">Benefits</a>
+      <a class="navlink" href="#contact">Contact</a>
+      <a href="javascript:void(0);" class="navlink menu-icon" onclick="myFunction()">&#x2630;</a>
     </nav>
   </header>
+  <div id="jumbo">
+    <p id="bid" class="accroches"> Bid a ride... &#128197;</p>
+    <p id="match" class="accroches">... pick a match &#9758;</p>
+    <p id="go" class="accroches">you're all set to Go &#128653;</p>
+    <button>See how id works</button>
+  </div>
   <main>
-    <section class="hero">
-      <img src="img/map_ouest_bleue_luminosite.jpg" alt="map">
-      <p>Paragraphe</p>	
-    </section>
-    <section id="presentation" class="row">
+    <section class="row">
       <div>
         <h2>What is Bid-N-Go?</h2>
-        <p>testBid-n-Go is a ride sharing system where ride offers are available in blocks rather than individual seats. 
+        <p>Bid-n-Go is a ride sharing system where ride offers are available in blocks rather than individual seats. 
           This is the case, for example, for bus transportation, or airplane, or, in general, vehicules used for mid to
           long range transportation.
         </p>
@@ -82,7 +90,7 @@
         resell unused reservations.
       </p>
     </section>
-    <section id="howitworks">
+    <section id="howitworks" class="anchor">
       <h3>How it works</h3>
       <p>
         Suppose we have a network of four cities, as schematised on the graph
@@ -157,61 +165,62 @@
        <li>Who can pick-up other travelers with different time requirements
          and/or travelling between any other nodes.</li>
       </ul>
-      
+    </section>
+    <section id="benefits" class="anchor">
       <h3>Why is it good for travellers?</h3>
       <ul>
-       <li>They can plan their journey as long in advance as they need, anywhere
-         they wish to go, however remote. </li>
-       <li>
-         They are not locked into a scarce and inconvenient bus time schedule or,
-         as it is most often the case, to a non-existing one.
-       </li>
-       <li>
-         If there is no transport offer yet for the time they need to the
-         destination they wish to go, they can bid an amount proportional to
-         their desire to attract providers. The system can suggest them optimal
-         bid amount for this destination and time frame based on past history.
-       </li>
-       <li>Once a deal is closed, they are guaranteed a seat.</li>
-       <li>
-         If there is already an ongoing transport offer, they just buy their
-         seat from the provider. The system then acts like a classic
-         reservation system.
-       </li>
-       <li>
-         Total flexibility. If you, as a passenger, need to change your
-         travel plan after the deal have been closed, you don't necessary loose
-         your money. You can just list your place for sell, the same way that
-         providers sell their remaining empty seats.
-       </li>
+        <li>They can plan their journey as long in advance as they need, anywhere
+          they wish to go, however remote. </li>
+        <li>
+          They are not locked into a scarce and inconvenient bus time schedule or,
+          as it is most often the case, to a non-existing one.
+        </li>
+        <li>
+          If there is no transport offer yet for the time they need to the
+          destination they wish to go, they can bid an amount proportional to
+          their desire to attract providers. The system can suggest them optimal
+          bid amount for this destination and time frame based on past history.
+        </li>
+        <li>Once a deal is closed, they are guaranteed a seat.</li>
+        <li>
+          If there is already an ongoing transport offer, they just buy their
+          seat from the provider. The system then acts like a classic
+          reservation system.
+        </li>
+        <li>
+          Total flexibility. If you, as a passenger, need to change your
+          travel plan after the deal have been closed, you don't necessary loose
+          your money. You can just list your place for sell, the same way that
+          providers sell their remaining empty seats.
+        </li>
       </ul>
 
       <h3>Why is it good for transport providers ?</h3>
       <ul>
-       <li>They can plan the optimally paying routes in advance, taking into
-         account their own constraints.</li>
-       <li>They benefit from the help of the system doing data analysis for
-         them to plan those optimal routes.</li>
-       <li>They keep their vehicle rolling, making the most of their
-         investments.</li>
-       <li>Providers of any size can chip in. Vehicle are not limited to
-         intercity coaches: they can be minivan, large bus or even airplanes or
-         boats, where appropriated.
-       </li>
+        <li>They can plan the optimally paying routes in advance, taking into
+          account their own constraints.</li>
+        <li>They benefit from the help of the system doing data analysis for
+          them to plan those optimal routes.</li>
+        <li>They keep their vehicle rolling, making the most of their
+          investments.</li>
+        <li>Providers of any size can chip in. Vehicle are not limited to
+          intercity coaches: they can be minivan, large bus or even airplanes or
+          boats, where appropriated.
+        </li>
       </ul>
 
       <h3>Why is it good for everybody else ?</h3>
       <ul>
-       <li>
-         Reduced amount of cars on the road: less gas emissions, less
-         congestion for the remaining cars and less road maintenance costs.
-       </li>
-       <li>
-         Reconnects and revitalize communities previously unserviced -- or
-         poorly serviced-- by public transportation.</li>
+        <li>
+          Reduced amount of cars on the road: less gas emissions, less
+          congestion for the remaining cars and less road maintenance costs.
+        </li>
+        <li>
+          Reconnects and revitalize communities previously unserviced -- or
+          poorly serviced-- by public transportation.</li>
       </ul>
     </section>
-    <section>
+    <section class="anchor" id="contact">
       <h3>Write us </h3>
       <form id="form" action="https://www.freecodecamp.com/email-submit">
         <input type="email" id="email"/>
@@ -227,5 +236,16 @@
     </nav>
 
   </footer>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("nav-bar");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
 </body>
 </html>
