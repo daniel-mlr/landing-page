@@ -1,0 +1,50 @@
+#video {
+  float: right;
+  padding: 0 20px;
+}
+.col2 {
+  padding: 0 20px;
+}
+.row {
+  clear: both;
+}
+.col-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.overview {
+  width: 33%;
+  padding: 10px;
+}
+.highlight {
+  background-color: $light-grey;
+}
+
+// how it works
+.figure {
+  order: 2;
+}
+#explain {
+  order: 1;
+  padding: 10px;
+  height: 50vh;
+  overflow-y: scroll;
+}
+#howitworks {
+  background-color: #efc;
+}
+#benefits {
+  padding: 20px;
+}
+
+#contact {
+  padding: 20px;
+}
+
+
+// footer
+footer {
+  background-color: darken($light-grey, 5%);
+  padding: 20px;
+}

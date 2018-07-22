@@ -31,15 +31,22 @@
     <p id="bid" class="accroches"> Bid a ride... &#128197;</p>
     <p id="match" class="accroches">... pick a match &#9758;</p>
     <p id="go" class="accroches">you're all set to Go &#128653;</p>
-    <button>See how id works</button>
+    <button><a href="#whatis">What it means &#8681;</a></button>
   </div>
   <main>
-    <section class="row">
-      <div>
+    <section id="whatis" class="row anchor">
+      <video id="video" width="480" height="360" controls="controls" >
+        <source  
+          src="https://res.cloudinary.com/danielmeilleurimg/video/upload/v1531345295/landing_page/bid-n-go-short.mp4"
+          type="video/mp4"
+          />
+      </video>
+      <div class="col2">
         <h2>What is Bid-N-Go?</h2>
-        <p>Bid-n-Go is a ride sharing system where ride offers are available in blocks rather than individual seats. 
-          This is the case, for example, for bus transportation, or airplane, or, in general, vehicules used for mid to
-          long range transportation.
+        <p>Bid-n-Go is a ride sharing system where ride offers are provided
+          in blocks rather than as individual seats.  This is the case, for
+          example, for bus transportation, or airplane, or, in general,
+          vehicules used for mid to long range transportation.
         </p>
         <p>
           Other ride sharing systems might offer shared rides in a car with two
@@ -54,117 +61,125 @@
         </p>
         <p><a href="#howitworks">See how it works.</a></p>
       </div>
-      <video id="video" width="480" height="360" controls="controls" >
-        <source  
-          src="https://res.cloudinary.com/danielmeilleurimg/video/upload/v1531345295/landing_page/bid-n-go-short.mp4"
-          type="video/mp4"
-          />
-      </video>
     </section>
-    <section>
-      <h3>Reduces global warming</h3>
-      <p>
-        Private vehicle transportation constitutes the largest source of
-        greenhouse gas emission.  By reducing car usage, thereby reducing
-        carbon emission per passenger per kilometer, Bid-n-Go can potentially
-        become a huge contributor to a greener environment.
-      </p>
-    </section>
-    <section>
-      <h3>Brings transportation services to previously unserviced communities</h3>
-      <p>
-        Communities which are too small or too remote to be of interest to
-        operators with a fix schedules can now have access to public
-        transportation, providing viable alternative to car ownership onerous
-        costs.
-      </p>
-    </section>
-    <section>
-      <h3>Maximises operators revenues and customers usefulness</h3>
-      <p>
-        By granting providers with a total flexibility on where and when to offer
-        their service, they can maximise their revenues per vehicule. For the
-        same reason, origins, destinations and time of travels which are the
-        most valuable to customers will have the most chances of being realised. 
-        Passengers will enjoy a guaranteed ride as well as a total flexibility to
-        resell unused reservations.
-      </p>
-    </section>
-    <section id="howitworks" class="anchor">
+    
+    <div class="row col-container highlight">
+      <section class="overview">
+        <h3>Reduces global warming, improve efficient use of scarse ressources</h3>
+        <p>
+          Private vehicle transportation constitutes the largest source of
+          greenhouse gas emission. It also incurs a tremendous cost in term of real 
+          estate of the road network. By reducing car usage, thereby reducing
+          carbon emission per passenger per kilometer as well as increasing
+          road efficiency, Bid-n-Go can potentially become a huge contributor
+          to a greener environment.
+        </p>
+      </section>
+      <section class="overview">
+        <h3>Brings transportation services to previously unserviced communities</h3>
+        <p>
+          Communities which are too small or too remote to be of interest to
+          mass transit operators with a fix schedules can now have access to public
+          transportation, thus providing viable alternative to private car
+          ownership onerous costs.
+        </p>
+      </section>
+      <section class="overview">
+        <h3>Maximises operators revenues and customers usefulness</h3>
+        <p>
+          By granting providers with a total flexibility on where and when to offer
+          their service, they can maximise their revenues per vehicule. For the
+          same reason, origins, destinations and time of travels which are the
+          most valuable to customers will have the most chances of being realised. 
+          Passengers will enjoy a guaranteed ride as well as a total flexibility to
+          resell unused reservations.
+        </p>
+      </section>
+    </div>
+    <section id="howitworks" class="anchor col-container">
+      
+      <div class="figure">
+       <div id="diag1"></div>
+       <div id="diag2"></div>
+      </div>
+      
+      <div id="explain">
       <h3>How it works</h3>
-      <p>
-        Suppose we have a network of four cities, as schematised on the graph
-        at right.
-      </p>
-      <h4>You are traveller 1 ...</h4>
-      <ul>
-        <li>You need to travel from <span>A</span> to <span>B</span> next Thursday</li>
-        <li>You need to be in <span>B</span> at 2:00 pm at the latest.</li>
-        <li>The fastest possible travel time between <span>A</span> and <span>B</span> is one hour.</li>
-        <li>You're ready to leave up to three hours earlier than necessary.</li>
-        <li>You think that $20 would be a reasonable fare for this journey.</li>
-        <li>You want to hold this offer until Wednesday at noon.</li>
-      </ul>
-      <div>
-        <p>
-          Thus, your parameters are the following:
-        </p>
-       Leaving time     Arrival time 
-       10:00 am - 1:00 pm   2:00 pm
+       <p>
+         Suppose we have a network of four cities, as schematised on the graph
+         at right.
+       </p>
+       <h4>You are traveller 1 ...</h4>
+       <ul>
+         <li>You need to travel from <span>A</span> to <span>B</span> next Thursday</li>
+         <li>You need to be in <span>B</span> at 2:00 pm at the latest.</li>
+         <li>The fastest possible travel time between <span>A</span> and <span>B</span> is one hour.</li>
+         <li>You're ready to leave up to three hours earlier than necessary.</li>
+         <li>You think that $20 would be a reasonable fare for this journey.</li>
+         <li>You want to hold this offer until Wednesday at noon.</li>
+       </ul>
+       <div>
+         <p>
+           Thus, your parameters are the following:
+         </p>
+        Leaving time     Arrival time 
+        10:00 am - 1:00 pm   2:00 pm
+       </div>
+       
+       
+       <h4>... And here is traveller 2 ...</h4>
+       <ul>
+        <li>He also needs to travel next Thursday, but from A to C</li>
+        <li>He needs to be in C at 11:00 am</li>
+        <li>
+          His time schedule is stricter: he doesn't want to start his journey
+          more than 1/4 hour earlier than necessary.
+        </li>
+        <li>In order to meet this stricter requirement he is ready to bid up to
+          $40 for this journey.</li>
+        <li>He also keeps his offer valid until Wednesday morning.</li>
+       </ul>
+       
+       <div>
+         <p>
+           Thus, traveller two's parameters are the following:
+         </p>
+        Leaving time     Arrival time 
+        10:00 am - 10:15 am   11:00 am
+       </div>
+       
+       <h4>... as well as many other travellers ...</h4>
+       <ul>
+        <li>Who wish to travel between different nodes of the network</li>
+        <li>On varying days and varying time windows requirements</li>
+        <li>For who such requirements are more or less crucials.</li>
+        <li>And who bid for the ride accordingly</li>
+       </ul>
+       
+       <h4>On the other side, here is provider 1 ...</h4>
+       <ul>
+        <li>She own a minivan of 8 passengers capacity.</li>
+        <li>She plan to be in A Thursday morning.</li>
+        <li>The system inform her of a potential deal of $60 with 2 passengers
+          from A to B via C if she leaves from A between 10:00 am and 10:15 am
+        </li>
+        <li>The potential income is slightly below her cost but until the
+          departure time she could sell the six remaining seats from A to B
+          and/or the 7 remaining seats from B to C.</li> 
+        <li>Hence, she confirms the departure for Thursday 10:15 am. The two
+          travellers so far are notified of the departure time and the money is
+          transfered from their account to the provider.</li>
+        <li>The system automatically lists the remaining seats and automatically
+          sells them to oncoming passengers at a predetermined fixed price or at
+          an optimal price calculated by the system based on past history.</li>
+       </ul>
+       <h4>... as well as many other providers...</h4>
+       <ul>
+        <li>With different vehicle capacity located at different places</li>
+        <li>Who can pick-up other travelers with different time requirements
+          and/or travelling between any other nodes.</li>
+       </ul>
       </div>
-      
-      <h4>... And here is traveller 2 ...</h4>
-      <ul>
-       <li>He also needs to travel next Thursday, but from A to C</li>
-       <li>He needs to be in C at 11:00 am</li>
-       <li>
-         His time schedule is stricter: he doesn't want to start his journey
-         more than 1/4 hour earlier than necessary.
-       </li>
-       <li>In order to meet this stricter requirement he is ready to bid up to
-         $45 for this journey.</li>
-       <li>He also keeps his offer valid until Wednesday morning.</li>
-      </ul>
-      
-      <div>
-        <p>
-          Thus, traveller two's parameters are the following:
-        </p>
-       Leaving time     Arrival time 
-       10:00 am - 10:15 am   11:00 am
-      </div>
-      
-      <h4>... as well as many other travellers ...</h4>
-      <ul>
-       <li>Who wish to travel between different nodes of the network</li>
-       <li>On varying days and varying time windows requirements</li>
-       <li>For who such requirements are more or less crucials.</li>
-       <li>And who bid for the ride accordingly</li>
-      </ul>
-
-      <h4>On the other side, here is provider 1 ...</h4>
-      <ul>
-       <li>She own a minivan of 8 passengers capacity.</li>
-       <li>She plan to be in A Thursday morning.</li>
-       <li>The system inform her of a potential deal of $55 with 2 passengers
-         from A to B via C if she leaves from A between 10:00 am and 10:15 am
-       </li>
-       <li>The potential income is slightly below her cost but until the
-         departure time she could sell the six remaining seats from A to B
-         and/or the 7 remaining seats from B to C.</li> 
-       <li>Hence, she confirms the departure for Thursday 10:15 am. The two
-         travellers so far are notified of the departure time and the money is
-         transfered from their account to the provider.</li>
-       <li>The system automatically lists the remaining seats and automatically
-         sells them to oncoming passengers at a predetermined fixed price or at
-         an optimal price calculated by the system based on past history.</li>
-      </ul>
-      <h4>... as well as many other providers...</h4>
-      <ul>
-       <li>With different vehicle capacity located at different places</li>
-       <li>Who can pick-up other travelers with different time requirements
-         and/or travelling between any other nodes.</li>
-      </ul>
     </section>
     <section id="benefits" class="anchor">
       <h3>Why is it good for travellers?</h3>
@@ -218,6 +233,8 @@
         <li>
           Reconnects and revitalize communities previously unserviced -- or
           poorly serviced-- by public transportation.</li>
+        <li>
+          Higher road usage efficiency hence lesser need to widen roads.</li>
       </ul>
     </section>
     <section class="anchor" id="contact">
@@ -247,5 +264,8 @@
       }
     }
   </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.min.js"></script>
+  <script src="testsvg.js"></script>
 </body>
 </html>
