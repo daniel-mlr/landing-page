@@ -14,13 +14,14 @@
     <div id="titres">
       <a href="#">
         <div id="logo_bidngo">
-          <img id="logo" src="img/logo1.svg.png" alt="Logo" width="150" height="100">
+          <img id="logo" src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532337024/landing_page/logo1.svg.png" alt="Logo" width="150" height="100">
           <h1>Bid&#8209;n&#8209;Go</h1>
         </div>
       </a>
         <h2>Collective on-demand Ride Sharing System</h2>
     </div>
     <nav class="topnav" id="nav-bar">
+      <a class="navlink" href="#whatis">Overview</a>
       <a class="navlink" href="#howitworks">How it works</a>
       <a class="navlink" href="#benefits">Benefits</a>
       <a class="navlink" href="#contact">Contact</a>
@@ -31,22 +32,23 @@
     <p id="bid" class="accroches"> Bid a ride... &#128197;</p>
     <p id="match" class="accroches">... pick a match &#9758;</p>
     <p id="go" class="accroches">you're all set to Go &#128653;</p>
-    <button><a href="#whatis">What it means &#8681;</a></button>
+    <!-- <button><a href="#whatis">What it means &#8681;</a></button> -->
+    <div class="button"><a href="#whatis">&#8681; What it means &#8681;</a></div>
   </div>
   <main>
     <section id="whatis" class="row anchor">
-      <video id="video" width="480" height="360" controls="controls" >
-        <source  
+      <video id="video" class="col1" width="480" height="360" controls="controls">
+        <source
           src="https://res.cloudinary.com/danielmeilleurimg/video/upload/v1531345295/landing_page/bid-n-go-short.mp4"
           type="video/mp4"
           />
       </video>
-      <div class="col2">
+      <div class="col1">
         <h2>What is Bid-N-Go?</h2>
         <p>Bid-n-Go is a ride sharing system where ride offers are provided
           in blocks rather than as individual seats.  This is the case, for
           example, for bus transportation, or airplane, or, in general,
-          vehicules used for mid to long range transportation.
+          vehicules used for mid to long range transit.
         </p>
         <p>
           Other ride sharing systems might offer shared rides in a car with two
@@ -62,13 +64,14 @@
         <p><a href="#howitworks">See how it works.</a></p>
       </div>
     </section>
-    
+
     <div class="row col-container highlight">
       <section class="overview">
+        <img src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532337934/landing_page/planet-earth.svg" alt="environment logo">
         <h3>Reduces global warming, improve efficient use of scarse ressources</h3>
         <p>
           Private vehicle transportation constitutes the largest source of
-          greenhouse gas emission. It also incurs a tremendous cost in term of real 
+          greenhouse gas emission. It also incurs a tremendous cost in term of real
           estate of the road network. By reducing car usage, thereby reducing
           carbon emission per passenger per kilometer as well as increasing
           road efficiency, Bid-n-Go can potentially become a huge contributor
@@ -76,6 +79,7 @@
         </p>
       </section>
       <section class="overview">
+        <img src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532338050/landing_page/communities2.png" alt="communities logo">
         <h3>Brings transportation services to previously unserviced communities</h3>
         <p>
           Communities which are too small or too remote to be of interest to
@@ -85,69 +89,75 @@
         </p>
       </section>
       <section class="overview">
+        <img src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532337589/landing_page/development.svg" alt="development logo">
         <h3>Maximises operators revenues and customers usefulness</h3>
         <p>
           By granting providers with a total flexibility on where and when to offer
           their service, they can maximise their revenues per vehicule. For the
           same reason, origins, destinations and time of travels which are the
-          most valuable to customers will have the most chances of being realised. 
+          most valuable to customers will have the most chances of being realised.
           Passengers will enjoy a guaranteed ride as well as a total flexibility to
           resell unused reservations.
         </p>
       </section>
     </div>
-    <section id="howitworks" class="anchor col-container">
-      
+
+    <h3 id="howitworks" class="anchor col1">How it works</h3>
+    <section class="col-container">
+
       <div class="figure">
        <div id="diag1"></div>
-       <div id="diag2"></div>
+       <div id="timetable"></div>
       </div>
-      
-      <div id="explain">
-      <h3>How it works</h3>
-       <p>
+
+      <div id="explain" class="col2">
+        <p>
          Suppose we have a network of four cities, as schematised on the graph
          at right.
        </p>
        <h4>You are traveller 1 ...</h4>
-       <ul>
-         <li>You need to travel from <span>A</span> to <span>B</span> next Thursday</li>
-         <li>You need to be in <span>B</span> at 2:00 pm at the latest.</li>
-         <li>The fastest possible travel time between <span>A</span> and <span>B</span> is one hour.</li>
-         <li>You're ready to leave up to three hours earlier than necessary.</li>
-         <li>You think that $20 would be a reasonable fare for this journey.</li>
+       <ul class="travellers">
+         <li id="etape1" onmouseover="hi(1)" onmouseout="unhi(1)">
+           You need to travel from <span>A</span> to <span>B</span> next Thursday</li>
+         <li id="etape2" onmouseover="hi(2)" onmouseout="unhi(2)">
+         You need to be in <span>B</span> at 2:00 pm at the latest. </li>
+         <li id="etape3" onmouseover="hi(3)" onmouseout="unhi(3)">
+           The fastest possible travel time between <span>A</span> and <span>B</span> is one hour.</li>
+         <li id="etape4" onmouseover="hi(4)" onmouseout="unhi(4)">
+           You're ready to leave up to three hours earlier than necessary.</li>
+         <li id="etape5" onmouseover="hi(5)" onmouseout="unhi(5)">
+           You think that $20 would be a reasonable fare for this journey.</li>
          <li>You want to hold this offer until Wednesday at noon.</li>
        </ul>
        <div>
-         <p>
-           Thus, your parameters are the following:
+         <p class="travelparam" onmouseover="hi(6)" onmouseout="unhi(6)">
+           Thus, your parameters are as shown on line P1 on the right
          </p>
-        Leaving time     Arrival time 
-        10:00 am - 1:00 pm   2:00 pm
        </div>
-       
-       
+
+
        <h4>... And here is traveller 2 ...</h4>
-       <ul>
-        <li>He also needs to travel next Thursday, but from A to C</li>
-        <li>He needs to be in C at 11:00 am</li>
-        <li>
+       <ul class="travellers">
+         <li id="etape7" onmouseover="hi(7)" onmouseout="unhi(7)">
+          He also needs to travel next Thursday, but from A to C</li>
+         <li id="etape8" onmouseover="hi(8)" onmouseout="unhi(8)">
+           He needs to be in C at 12:00 am</li>
+         <li id="etape9" onmouseover="hi(9)" onmouseout="unhi(9)">
           His time schedule is stricter: he doesn't want to start his journey
           more than 1/4 hour earlier than necessary.
         </li>
-        <li>In order to meet this stricter requirement he is ready to bid up to
+         <li id="etape10" onmouseover="hi(10)" onmouseout="unhi(10)">
+          In order to meet this stricter requirement he is ready to bid up to
           $40 for this journey.</li>
         <li>He also keeps his offer valid until Wednesday morning.</li>
        </ul>
-       
+
        <div>
-         <p>
-           Thus, traveller two's parameters are the following:
+         <p class="travelparam" onmouseover="hi(10)" onmouseout="unhi(10)">
+           Thus, your parameters are as shown on line P2 on the right
          </p>
-        Leaving time     Arrival time 
-        10:00 am - 10:15 am   11:00 am
        </div>
-       
+
        <h4>... as well as many other travellers ...</h4>
        <ul>
         <li>Who wish to travel between different nodes of the network</li>
@@ -155,7 +165,7 @@
         <li>For who such requirements are more or less crucials.</li>
         <li>And who bid for the ride accordingly</li>
        </ul>
-       
+
        <h4>On the other side, here is provider 1 ...</h4>
        <ul>
         <li>She own a minivan of 8 passengers capacity.</li>
@@ -165,7 +175,7 @@
         </li>
         <li>The potential income is slightly below her cost but until the
           departure time she could sell the six remaining seats from A to B
-          and/or the 7 remaining seats from B to C.</li> 
+          and/or the 7 remaining seats from B to C.</li>
         <li>Hence, she confirms the departure for Thursday 10:15 am. The two
           travellers so far are notified of the departure time and the money is
           transfered from their account to the provider.</li>
@@ -181,7 +191,7 @@
        </ul>
       </div>
     </section>
-    <section id="benefits" class="anchor">
+    <section id="benefits" class="anchor col1">
       <h3>Why is it good for travellers?</h3>
       <ul>
         <li>They can plan their journey as long in advance as they need, anywhere
@@ -264,7 +274,7 @@
       }
     }
   </script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.min.js"></script>
   <script src="testsvg.js"></script>
 </body>

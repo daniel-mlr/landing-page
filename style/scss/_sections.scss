@@ -1,9 +1,13 @@
 #video {
   float: right;
-  padding: 0 20px;
+  //padding: 0 $padding-lr-desktop;
+}
+.col1 {
+  padding-left: $padding-lr-desktop;
+  padding-right: $padding-lr-desktop;
 }
 .col2 {
-  padding: 0 20px;
+  padding: 0 $padding-col;
 }
 .row {
   clear: both;
@@ -11,14 +15,21 @@
 .col-container {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding-left: $padding-col;
+  padding-right: $padding-col;
 }
 .overview {
   width: 33%;
-  padding: 10px;
+  padding: $padding-col;
+  img {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto;
+  }
 }
 .highlight {
-  background-color: $light-grey;
+  background-color: lighten($light-grey, 5%);
 }
 
 // how it works
@@ -27,24 +38,40 @@
 }
 #explain {
   order: 1;
-  padding: 10px;
-  height: 50vh;
+  //padding-left: 10px;
+  //padding-right: 10px;
+  height: 400px;
   overflow-y: scroll;
 }
 #howitworks {
   background-color: #efc;
 }
 #benefits {
-  padding: 20px;
+  // padding-left: 20px;
+  // padding-right: 20px;
 }
 
 #contact {
   padding: 20px;
 }
 
-
 // footer
 footer {
   background-color: darken($light-grey, 5%);
   padding: 20px;
+}
+
+// tests
+// #traveller1 li:nth-of-type(2):hover ~ #noeudB {
+//   font-weight: bold;
+//   fill: red;
+// }
+// #traveller1 li:hover {
+.travellers li:hover {
+  color: red;
+  font-weight: bold;
+}
+.travelparam:hover {
+  color: red;
+  font-weight: bold;
 }

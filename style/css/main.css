@@ -10,10 +10,13 @@ body {
   color: #444;
   line-height: 1.4; }
 
-button {
+.button {
   cursor: pointer; }
 
-button:disabled {
+.button:disabled {
+  cursor: default; }
+
+.button:disabled {
   cursor: default; }
 
 .is-active {
@@ -109,12 +112,12 @@ a.active {
   background-position: left top; }
   #jumbo .accroches {
     color: #939796;
+    font-size: 4.8rem;
     font-family: 'Faster One', cursive;
     margin: 0;
     padding: 0 20px;
     position: absolute;
-    top: 20vh;
-    font-size: 4.8rem; }
+    top: 20vh; }
 
 @keyframes entree {
   from {
@@ -134,22 +137,31 @@ a.active {
       left: 0; }
     #jumbo #go {
       left: 0; } }
-  #jumbo button {
+  #jumbo .button {
+    border: 5px solid #9b1313;
+    border-radius: 25px;
     position: absolute;
     top: 80vh;
-    left: 40vw;
-    font-size: 1.8em; }
-    #jumbo button a {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 290px;
+    font-size: 1.8em;
+    padding: 10px; }
+    #jumbo .button a {
       text-decoration: none;
-      color: #939796;
+      color: #9b1313;
       font-weight: bold; }
 
 #video {
-  float: right;
-  padding: 0 20px; }
+  float: right; }
+
+.col1 {
+  padding-left: 20px;
+  padding-right: 20px; }
 
 .col2 {
-  padding: 0 20px; }
+  padding: 0 10px; }
 
 .row {
   clear: both; }
@@ -157,29 +169,31 @@ a.active {
 .col-container {
   display: flex;
   justify-content: space-between;
-  padding: 10px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .overview {
   width: 33%;
   padding: 10px; }
+  .overview img {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto; }
 
 .highlight {
-  background-color: #eee; }
+  background-color: #fbfbfb; }
 
 .figure {
   order: 2; }
 
 #explain {
   order: 1;
-  padding: 10px;
-  height: 50vh;
+  height: 400px;
   overflow-y: scroll; }
 
 #howitworks {
   background-color: #efc; }
-
-#benefits {
-  padding: 20px; }
 
 #contact {
   padding: 20px; }
@@ -187,3 +201,11 @@ a.active {
 footer {
   background-color: #e1e1e1;
   padding: 20px; }
+
+.travellers li:hover {
+  color: red;
+  font-weight: bold; }
+
+.travelparam:hover {
+  color: red;
+  font-weight: bold; }

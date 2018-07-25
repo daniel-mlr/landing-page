@@ -9,12 +9,12 @@
   background-position: left top;
   .accroches {
     color: $graph-edge-color;
+    font-size: $xl-size;
     font-family: 'Faster One', cursive;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 $padding-lr-desktop;
     position: absolute;
     top: 20vh;
-    font-size: $xl-size;
   }
   @keyframes entree {
     from {left: -50vw;}
@@ -43,15 +43,20 @@
     #match {left: 0}
     #go {left: 0}
   }
-  button {
+  .button {
+    border: 5px solid $call-to-action;
+    border-radius: 25px;
     position: absolute;
     top: 80vh;
-    left: 40vw;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 290px;
     font-size: 1.8em;
+    padding: 10px;
     a {
       text-decoration: none;
-      // color: $dark-grey;
-      color: $graph-edge-color;
+      color: $call-to-action;
       font-weight: bold;
     }
   }
