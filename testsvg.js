@@ -1,4 +1,4 @@
-/* global SVG */
+/* global SVG:false */
 
 // constantes pour graphes
 const canvasW = 400
@@ -6,6 +6,7 @@ const canvasH = 300
 const nodeColor = '#A5C0C8'
 const edgeColor = '#939796'
 const red = '#F05'
+const bgColor = '#eee'
 
 // constantes pour diag1
 const diameterCircle = 60
@@ -20,7 +21,7 @@ const rayCircle = diameterCircle / 2
 const draw = SVG('diag1').size(canvasW, canvasH)
 const timeColor = 'green'
 
-draw.rect(canvasW, canvasH).fill('#eee') // background
+draw.rect(canvasW, canvasH).fill(bgColor) // background
 
 const coordA = [rayCircle + cStrokeW, centerH]
 const coordB = [canvasW - rayCircle - cStrokeW, centerH]
@@ -79,8 +80,27 @@ for (let i = 0; i < 4; i++) {
   draw.text(cercles[i]).size(30).attr({'font-weight': 'bold'}).fill('white').cx(X[i]).cy(Y[i]).id('lettre' + cercles[i])
 }
 
-// diagramme des timetable
+// dessin minivan
+
+const minivan = draw.group()
+minivan.add(
+  draw.rect(60, 30)
+    .fill(bgColor)
+    .stroke({width: 3, color: '#fa0'})
+    .radius(10)
+)
+const wheel = draw.circle(13)
+  .fill(bgColor)
+  .stroke({width: 3, color: '#222'})
+  .cx(15).cy(30)
+minivan.add(wheel)
+minivan.add(wheel.clone().cx(45))
+minivan.add(draw.text('8').cx(33).cy(13))
+
+minivan.move(40, 40).rotate(-36)
+// ------------ diagramme des timetable ---------------
 const ttblW = 100
+// meme longueur que draw
 const ttbl = SVG('timetable').size(canvasW, ttblW)
 const timeLbl = ['10h', '11h', '12h', '1h', '2h']
 const tickL = 10
@@ -92,7 +112,7 @@ const tLine2 = 80
 const tWindowW = 20
 
 // ticks marqueurs de l'échelle de temps
-ttbl.rect(canvasW, ttblW).fill('#eee')
+ttbl.rect(canvasW, ttblW).fill(bgColor)
 for (let i = 0; i < nbTicks; i++) {
   let tickHpos = canvasW / nbTicks * (i + 0.5)
   let lStart = [tickHpos, tickHoffset]
@@ -137,6 +157,7 @@ ttbl.line(canvasW * 0.3, tLine2, canvasW * 0.5, tLine2).stroke({
 ttbl.rect(canvasW * 0.05, tWindowW)
   .move(canvasW * 0.3, tLine2 - tWindowW * 0.5)
   .fill(nodeColor)
+  .id('tWindow2')
 ttbl.line(0, 0, 0, tWindowW).stroke({width: tickW, color: timeColor})
   .move(canvasW * 0.5, tLine2 - 0.5 * tWindowW)
 
@@ -144,22 +165,52 @@ ttbl.line(0, 0, 0, tWindowW).stroke({width: tickW, color: timeColor})
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "hi" }] */
 // let anim
 
+SVG.get('departAC').hide()
+SVG.get('arrivalC').hide()
+SVG.get('fareAB').hide()
+SVG.get('fareAC').hide()
+minivan.hide()
+
 function hi (elem) {
   // console.log('elem no', elem, ' allumé.')
   switch (elem) {
     case 1:
+    case 2:
+    case 3:
+    case 4:
+      SVG.get('fareAB').hide()
+      SVG.get('fareAC').hide()
+      minivan.hide()
+      break
+    case 5:
+    case 6:
+      SVG.get('departAC').hide()
+      SVG.get('arrivalC').hide()
+      minivan.hide()
+      break
+    case 7:
+    case 8:
+      SVG.get('arrivalC').show()
+      minivan.hide()
+      break
+    case 9:
+      SVG.get('departAC').show()
+      minivan.hide()
+      break
+    case 12:
+      minivan.show()
+      break
+    case 13:
+      break
+  }
+
+  switch (elem) {
+    case 1:
       SVG.get('AB').animate(300, '-', 0).attr({'stroke': red}).loop(10)
-      // SVG.get('AB').stroke(red)
-      // console.log('fin loop')
       break
     case 2:
-      // console.log('hello', elem, ' de deux')
       SVG.get('arrivalB').attr({'font-weight': 'bold'})
         .animate(300, '-', 0).fill(red).loop(10)
-      // SVG.get('arrivalB').animate(300, '-', 0).attr({
-      //   'fill': red,
-      //   'font-weight': 'bold'
-      // }).loop(5)
       break
     case 3:
       SVG.get('timeAB').attr({'font-weight': 'bold'})
@@ -170,9 +221,10 @@ function hi (elem) {
         .animate(300, '-', 0).fill(red).loop(10)
       break
     case 5:
-      SVG.get('fareAB').animate(300, '-', 0).fill(red).loop(10)
+      SVG.get('fareAB').show().animate(300, '-', 0).fill(red).loop(10)
       break
     case 6:
+      SVG.get('tWindow1').animate().attr('width', 0).reverse()
       break
     case 7:
       SVG.get('AC').animate(300, '-', 0).stroke(red).loop(10)
@@ -182,16 +234,26 @@ function hi (elem) {
         .animate(300, '-', 0).fill(red).loop(10)
       break
     case 9:
-      SVG.get('departAC').attr({'font-weight': 'bold'})
+      SVG.get('departAC').show().attr({'font-weight': 'bold'})
         .animate(300, '-', 0).fill(red).loop(10)
       SVG.get('timeAC').attr({'font-weight': 'bold'})
         .animate(300, '-', 0).fill(red).loop(10)
       break
     case 10:
-      SVG.get('fareAC').animate(300, '-', 0).fill(red).loop(10)
+      SVG.get('fareAC').show().animate(300, '-', 0).fill(red).loop(10)
+      break
+    case 11:
+      SVG.get('tWindow2').animate().attr('width', 0).reverse()
+      break
+    case 13:
+      SVG.get('CB').animate(300, '-', 0).stroke(red).loop(10)
+      SVG.get('AC').animate(300, '-', 0).stroke(red).loop(10)
+      SVG.get('fareAC').show()
+      SVG.get('fareAB').show().animate().move(182, 62).rotate(36)
       break
   }
 }
+
 function unhi (elem) {
   switch (elem) {
     case 1:
@@ -220,6 +282,9 @@ function unhi (elem) {
     case 5:
       SVG.get('fareAB').stop().fill(edgeColor)
       break
+    case 6:
+      SVG.get('tWindow1').stop().attr('width', canvasW * 0.6)
+      break
     case 7:
       SVG.get('AC').stop().stroke(edgeColor)
       break
@@ -241,6 +306,14 @@ function unhi (elem) {
       break
     case 10:
       SVG.get('fareAC').stop().fill(edgeColor)
+      break
+    case 11:
+      SVG.get('tWindow2').stop().attr('width', canvasW * 0.05)
+      break
+    case 13:
+      SVG.get('CB').stop().stroke(edgeColor)
+      SVG.get('AC').stop().stroke(edgeColor)
+      SVG.get('fareAB').stop().cx(centerV).cy(centerH + 16).rotate(0)
       break
   }
 }

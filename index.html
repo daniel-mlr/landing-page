@@ -33,7 +33,7 @@
     <p id="match" class="accroches">... pick a match &#9758;</p>
     <p id="go" class="accroches">you're all set to Go &#128653;</p>
     <!-- <button><a href="#whatis">What it means &#8681;</a></button> -->
-    <div class="button"><a href="#whatis">&#8681; What it means &#8681;</a></div>
+    <div class="button"><a href="#whatis">&#8681;&nbsp;What it means&nbsp;&#8681;</a></div>
   </div>
   <main>
     <section id="whatis" class="row anchor">
@@ -116,11 +116,13 @@
          at right.
        </p>
        <h4>You are traveller 1 ...</h4>
+
+       <!-- <ul class="travellers" onmouseover="show('trav1')" onmouseout="hide('trav1')"> -->
        <ul class="travellers">
          <li id="etape1" onmouseover="hi(1)" onmouseout="unhi(1)">
            You need to travel from <span>A</span> to <span>B</span> next Thursday</li>
          <li id="etape2" onmouseover="hi(2)" onmouseout="unhi(2)">
-         You need to be in <span>B</span> at 2:00 pm at the latest. </li>
+           You need to be in <span>B</span> at 2:00 pm at the latest. </li>
          <li id="etape3" onmouseover="hi(3)" onmouseout="unhi(3)">
            The fastest possible travel time between <span>A</span> and <span>B</span> is one hour.</li>
          <li id="etape4" onmouseover="hi(4)" onmouseout="unhi(4)">
@@ -153,7 +155,7 @@
        </ul>
 
        <div>
-         <p class="travelparam" onmouseover="hi(10)" onmouseout="unhi(10)">
+         <p class="travelparam" onmouseover="hi(11)" onmouseout="unhi(11)">
            Thus, your parameters are as shown on line P2 on the right
          </p>
        </div>
@@ -168,10 +170,12 @@
 
        <h4>On the other side, here is provider 1 ...</h4>
        <ul>
-        <li>She own a minivan of 8 passengers capacity.</li>
+         <li id="etape12" onmouseover="hi(12)" onmouseout="unhi(12)">
+          She own a minivan of 8 passengers capacity.</li>
         <li>She plan to be in A Thursday morning.</li>
-        <li>The system inform her of a potential deal of $60 with 2 passengers
-          from A to B via C if she leaves from A between 10:00 am and 10:15 am
+         <li id="etape13" onmouseover="hi(13)" onmouseout="unhi(13)">
+          The system inform her of a potential deal of $60 with 2 passengers
+          from A to B via C if she leaves from A between 11:00 am and 11:15 am
         </li>
         <li>The potential income is slightly below her cost but until the
           departure time she could sell the six remaining seats from A to B
