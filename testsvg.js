@@ -6,7 +6,7 @@ const canvasH = 300
 const nodeColor = '#A5C0C8'
 const edgeColor = '#939796'
 const red = '#F05'
-const bgColor = '#eee'
+const bgColor = '#fafafa'
 
 // constantes pour diag1
 const diameterCircle = 60
@@ -42,7 +42,8 @@ draw.text('$40 x 1').fill(edgeColor)
   .cx(canvasW * 0.34).cy(canvasH * 0.31)
   .rotate(-36).id('fareAC')
 
-draw.text('$20 x 1').fill(edgeColor).cx(centerV).cy(centerH + 16).id('fareAB')
+draw.text('$20 x 1').fill(edgeColor)
+  .cx(centerV).cy(canvasH * 0.55).rotate(0).id('fareAB')
 draw.line([coordA, coordD]).stroke({width: cStrokeW, color: edgeColor}).id('AD')
 draw.line([coordC, coordB]).stroke({width: cStrokeW, color: edgeColor}).id('CB')
 draw.text('45 min.')
@@ -249,7 +250,20 @@ function hi (elem) {
       SVG.get('CB').animate(300, '-', 0).stroke(red).loop(10)
       SVG.get('AC').animate(300, '-', 0).stroke(red).loop(10)
       SVG.get('fareAC').show()
-      SVG.get('fareAB').show().animate().move(182, 62).rotate(36)
+      SVG.get('fareAB').cx(centerV).cy(canvasH * 0.55).show()
+        .animate()
+        .rotate(36, centerV, centerH)
+        .center(canvasW * 0.53, canvasH * 0.23)
+      // .cx(182).cy(62).rotate(36)
+      // draw.text('$20 x 1').fill(edgeColor).cx(centerV).cy(centerH + 16).id('fareAB')
+      break
+    case 14:
+      SVG.get('CB').stop().stroke(red)
+      SVG.get('AC').stop().stroke(red)
+      SVG.get('fareAC').show()
+      SVG.get('fareAB').show()
+        .rotate(36, centerV, centerH)
+        .center(canvasW * 0.53, canvasH * 0.23)
       break
   }
 }
@@ -313,7 +327,12 @@ function unhi (elem) {
     case 13:
       SVG.get('CB').stop().stroke(edgeColor)
       SVG.get('AC').stop().stroke(edgeColor)
-      SVG.get('fareAB').stop().cx(centerV).cy(centerH + 16).rotate(0)
+      SVG.get('fareAB').stop().center(centerV, canvasH * 0.55).rotate(0, centerV, centerH)
+      break
+    case 14:
+      SVG.get('CB').stop().stroke(edgeColor)
+      SVG.get('AC').stop().stroke(edgeColor)
+      SVG.get('fareAB').stop().hide()
       break
   }
 }

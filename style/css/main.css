@@ -5,10 +5,19 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
+  font-family: 'Sunflower', sans-serif;
+  font-size: 1.7rem;
   color: #444;
   line-height: 1.4; }
+
+main {
+  padding: 0 0px;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+section {
+  padding-left: 30px;
+  padding-right: 30px; }
 
 .button {
   cursor: pointer; }
@@ -50,12 +59,12 @@ body {
       #header #titres #logo_bidngo h1 {
         margin: 0px;
         color: #939796;
-        padding: 0 1.6rem; }
+        padding: 0 1.7rem; }
     @media (max-width: 536px) {
       #header #titres h2 {
         display: none; } }
     #header #titres h2 {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       color: #6694a1;
       margin: 0 10px 0 10px; }
 
@@ -72,7 +81,7 @@ a.active {
   text-align: center;
   padding: 6px 6px;
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: #5a8693; }
 
 .topnav a:hover {
@@ -108,14 +117,14 @@ a.active {
 
 #jumbo {
   height: 100vh;
-  background-image: url("https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532043699/landing_page/map_ouest_bleue_luminosite.jpg");
+  background-image: url("../../img/map_ouest_bleue_luminosite.jpg");
   background-position: left top; }
   #jumbo .accroches {
-    color: #939796;
-    font-size: 4.8rem;
-    font-family: 'Faster One', cursive;
+    color: #437152;
+    font-size: 5.4rem;
+    font-family: 'Carter One', cursive;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 30px;
     position: absolute;
     top: 20vh; }
 
@@ -125,11 +134,11 @@ a.active {
   to {
     left: 0; } }
   #jumbo #match {
-    top: 30vh;
+    top: 36vh;
     align-content: center; }
   #jumbo #go {
-    left: 20vw;
-    top: 50vh; }
+    left: 18vw;
+    top: 52vh; }
   @media (max-width: 536px) {
     #jumbo .accroches {
       font-size: 3.2rem; }
@@ -154,27 +163,29 @@ a.active {
       font-weight: bold; }
 
 #video {
-  float: right; }
+  padding-left: 20px; }
 
-.col1 {
+.col {
   padding-left: 20px;
   padding-right: 20px; }
 
+.col1 {
+  padding-left: 30px;
+  padding-right: 30px; }
+
 .col2 {
-  padding: 0 10px; }
+  padding-left: 20px; }
 
 .row {
   clear: both; }
 
 .col-container {
   display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px; }
+  justify-content: space-between; }
 
 .overview {
   width: 33%;
-  padding: 10px; }
+  padding: 20px; }
   .overview img {
     display: block;
     height: 100px;
@@ -193,7 +204,8 @@ a.active {
   overflow-y: scroll; }
 
 #howitworks {
-  background-color: #efc; }
+  background-color: #f0f6f2;
+  padding-right: 0px; }
 
 #contact {
   padding: 20px; }
@@ -201,10 +213,18 @@ a.active {
 footer {
   background-color: #e1e1e1;
   padding: 20px; }
+  footer .navlink {
+    padding: 0 20px;
+    text-decoration: none; }
+  footer a:hover {
+    background-color: #c8c8c8;
+    color: white; }
 
-.travellers li:hover {
-  color: red;
-  font-weight: bold; }
+.travellers, .providers {
+  font-size: 1.5rem; }
+  .travellers li:hover, .providers li:hover {
+    color: red;
+    font-weight: bold; }
 
 .travelparam:hover {
   color: red;

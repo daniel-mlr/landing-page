@@ -3,14 +3,18 @@
   // flex-direction: column;
   // position: relative;
   height: 100vh;
-  // background-image:url('../../img/map_ouest_bleue_luminosite4.jpg');
-  background-image:url('https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532043699/landing_page/map_ouest_bleue_luminosite.jpg');
+  background-image:url('../../img/map_ouest_bleue_luminosite.jpg');
+  // background-image:url('https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532043699/landing_page/map_ouest_bleue_luminosite.jpg');
   // background-size: cover;
   background-position: left top;
   .accroches {
-    color: $graph-edge-color;
+    // color: $graph-edge-color;
+    color: darken(#90BD9F, 30%);
     font-size: $xl-size;
-    font-family: 'Faster One', cursive;
+    // font-family: 'Faster One', cursive;
+    // font-family: 'Bangers', cursive;
+    font-family: 'Carter One', cursive;
+    // font-weight: bold;
     margin: 0;
     padding: 0 $padding-lr-desktop;
     position: absolute;
@@ -29,12 +33,12 @@
     // animation-name: entree;
     // animation-duration: 1s;
     // animation-delay: 2s;
-    top: 30vh;
+    top: 36vh;
     align-content: center;
   }
   #go {
-    left: 20vw;
-    top: 50vh;
+    left: 18vw;
+    top: 52vh;
   }
   @media (max-width: 536px) {
     .accroches {
