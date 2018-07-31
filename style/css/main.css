@@ -52,7 +52,7 @@ section {
       background-color: #e1e1e1;
       display: flex;
       align-items: center; }
-      #header #titres #logo_bidngo #logo {
+      #header #titres #logo_bidngo #header-img {
         height: 50px;
         width: 70px;
         padding: 5px; }
@@ -91,7 +91,7 @@ a.active {
 .topnav .menu-icon {
   display: none; }
 
-@media screen and (max-width: 855px) {
+@media screen and (max-width: 900px) {
   .topnav {
     align-self: start;
     padding-right: 20px; }
@@ -103,21 +103,21 @@ a.active {
     position: relative;
     right: -20px; } }
 
-@media screen and (max-width: 855px) {
+@media screen and (max-width: 900px) {
   .responsive a.navlink {
     position: relative; }
   .responsive a.menu-icon {
     position: absolute;
     right: 0;
     top: 0; }
-  .responsive a.navlink {
+  .responsive a.nav-link {
     float: none;
     display: block;
     text-align: left; } }
 
 #jumbo {
   height: 100vh;
-  background-image: url("../../img/map_ouest_bleue_luminosite.jpg");
+  background-image: url("https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532660904/landing_page/map_ouest_bleue_luminosite.jpg");
   background-position: left top; }
   #jumbo .accroches {
     color: #437152;
