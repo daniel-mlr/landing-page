@@ -205,7 +205,12 @@ a.active {
 
 #howitworks {
   background-color: #f0f6f2;
+  border: 1px solid red;
   padding-right: 0px; }
+
+#presentation {
+  width: 90vw;
+  height: 90vh; }
 
 #contact {
   padding: 20px; }
@@ -229,3 +234,44 @@ footer {
 .travelparam:hover {
   color: red;
   font-weight: bold; }
+
+#email {
+  width: 30em; }
+
+.allume {
+  stroke: #20f; }
+
+#AB.allume {
+  stroke-dasharray: 10; }
+
+.steptext {
+  fill: #666;
+  display: none; }
+
+.steptext.visible {
+  display: block; }
+
+.travellers, .providers {
+  font-size: 1.5rem; }
+  .travellers li:hover, .providers li:hover {
+    color: red;
+    font-weight: bold; }
+
+.travelparam:hover {
+  color: red;
+  font-weight: bold; }
+
+#email {
+  width: 30em; }
+
+.actif {
+  stroke: #20f; }
+
+#AB.active {
+  stroke-dasharray: 10; }
+
+.steptext {
+  fill: #666; }
+
+svg .nav {
+  cursor: pointer; }

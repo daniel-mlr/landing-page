@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white_dm.css">
+    <link rel="stylesheet" href="css/custom.css?3">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" style="border:2px solid blue;">
+        <?xml version="1.0"?>
+        <svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="900" height="500" version="1.1" viewBox="0 0 900 500">
+          <defs>
+          </defs>
+          <g id="graphReseau">
+            <line class="connectLine" id="AB" x1="34"  y1="250" x2="466" y2="250" />
+            <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="70" />
+            <line class="connectLine" id="AD" x1="34"  y1="250" x2="250" y2="430" />
+            <line class="connectLine" id="CB" x1="250" y1="70"  x2="466" y2="250" />
+            <line class="connectLine actif" id="DB" x1="250" y1="430" x2="466" y2="250" />
+
+            <circle r="36" class="noeudForme"    cx="34" cy="250"/>
+            <text class="noeudTexte" id="lettreA" x="34"  y="250">A</text>
+
+            <circle r="32" class="noeudForme"    cx="466" cy="250"/>
+            <text class="noeudTexte" id="lettreB" x="466"  y="250">B</text>
+
+            <circle r="23" class="noeudForme"    cx="250" cy="70"/>
+            <text class="noeudTexte" id="lettreC" x="250"  y="70">C</text>
+
+            <circle r="23" class="noeudForme"    cx="250" cy="430"/>
+            <text class="noeudTexte" id="lettreD" x="250"  y="430">D</text>
+
+            <!-- temps de transport -->
+            <g id="trspTimesUp" transform="translate(0, 22)">
+              <text class="timeText" id="timeAB" x="250" y="245">1 hour </text>
+              <text class="timeText" id="timeAC" x="150" y="150" transform="rotate(-40, 150, 150)">45 min.</text>
+              <text class="timeText" id="timeCB" x="350" y="150" transform="rotate( 40, 350, 150)">45 min.</text>
+            </g>
+            <g id="trspTimesDown" transform="translate(0, -22)">
+              <text class="timeText" id="timeAD" x="150" y="350" transform="rotate( 40, 150, 350)">45 min.</text>
+              <text class="timeText" id="timeDB" x="354" y="350" transform="rotate(-40, 350, 350)">45 min.</text>
+            </g>
+
+            <!-- fares -->
+            <g transform="translate(0, -22)">
+              <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-40, 150, 150)">$40 x 1</text>
+              <text class="fares" id="fareCB" x="355" y="155" transform="rotate( 40, 355, 155)">$(optimal offer)</text>
+            </g>
+            <!-- horaires -->
+            <g id="timeFrames" transform="translate(0, -50)">
+              <text class="timeFrame" id="arivalB" x="466" y="250">[ 2pm ]</text>
+              <text class="timeFrame" id="departA1" x="34" y="250">[ 10am, 1pm ]</text>
+            </g>
+            <text class="timeFrame" id="departA2" x="34" y="250" transform="translate(0, -70)">[ 11am, 11:15am ]</text>
+          </g>
+        </svg>
+        <section>
+          <p>Ici un paragraphe après l'entête h1 (qui n'est plus là!) et qui s'étendra sur plusieurs lignes, si tout fonctionne correctement.</p>
+        </section>
+        <section data-transition="slide-in fade-out" data-state="monetat">
+          <h3>Titre de la section</h3>
+          <div class="d-flex" style="justify-content: space-between;">
+            <ul class="leftside">
+              <li id="nouvel" class="fragment fade-in-then-semi-out">Un nouvel essai avec svg:</li>
+              <li id="deux" class="fragment fade-in-then-semi-out">Un deuxième fragment</li>
+              <li class="fragment fade-in-then-semi-out">...puis, un troisième. Supposons que cet item soit très long. Si long qu'il empiète sur l'image.</li>
+            </ul>
+          </div>
+        </section>
+        <section data-transition="fade-in fade-out">
+          <h3>Section suivante, même schema</h3>
+          <div class="d-flex" style="justify-content: space-between;">
+            <ul>
+              <li class="fragment fade-in-then-semi-out">quatrième étape</li>
+              <li class="fragment fade-in-then-semi-out">...cinquième</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      sayHello = () => console.log('bonjour le monde')
+      Reveal.initialize({
+        margin: 0.01,
+        center: false,
+        slideNumber: true
+      });
+      Reveal.configure({
+        slideNumber: 'c/t',
+      })
+      Reveal.addEventListener('slidechanged', function(e) {
+        console.log('index h, v:', e.indexh, e.indexv)
+        var graphReseau = document.getElementById("graphReseau")
+        switch(e.indexh) {
+          case 1:
+            console.log('un est atteint')
+            graphReseau.setAttribute("transform", "translate(300, 0)")
+            break
+          default:
+            graphReseau.setAttribute("transform", "translate(0, 0)")
+        }
+      })
+      Reveal.addEventListener('fragmentshown', function(e) {
+        // console.log('fragment actuel', e)
+        // sayHello()
+
+        // var svgDoc = actuel.contentDocument
+        // console.log('shown:', e.fragment.id)
+
+        // switch(e.fragment.id) {
+        //   case 'deux':
+        //     console.log('cas deux')
+        //     svgDoc.getElementById('tWindow1').setAttribute('fill', '#ff0000')
+        //     break
+        //   default:
+        //     console.log('défaut')
+        // }
+      })
+      Reveal.addEventListener('fragmenthidden', function(e) {
+        console.log('fragment caché:', e.fragment.id)
+      })
+      // Reveal.addEventListener('monetat', function(e) {
+      //   console.log(Reveal.getState())
+      //   console.log('monetat activé', e)
+      // }, false );
+    </script>
+  </body>
+</html>

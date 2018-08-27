@@ -53,7 +53,15 @@
 #howitworks {
   // background-color: #efc;
   background-color: lighten(#90BD9F, 30%);
+  border: 1px solid red;
   padding-right: 0px;
+}
+#presentation {
+  // à faire: rendre responsive 
+  // width: 800px;
+  // height: 600px;
+  width: 90vw;
+  height: 90vh;
 }
 #benefits {
   // padding-left: 20px;
@@ -94,4 +102,20 @@ footer {
 .travelparam:hover {
   color: red;
   font-weight: bold;
+}
+#email {
+  width: 30em;
+}
+.allume {
+  stroke: #20f;
+}
+#AB.allume {
+  stroke-dasharray: 10;
+}
+.steptext {
+  fill: #666 ;
+  display: none;
+}
+.steptext.visible {
+  display: block;
 }

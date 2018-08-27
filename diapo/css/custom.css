@@ -1,0 +1,83 @@
+.reveal .slides {
+  /*top: 0 !important;*/
+}
+.reveal .slides>section {
+  top: 0px;
+}
+.reveal .slides .leftside {
+  margin-right: 50%;
+}
+
+/* SVG */
+
+svg {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  margin: auto;
+  border: 2px solid red;
+  font-size: 20px;
+}
+
+.connectLine {
+ stroke: #939796;
+ stroke-width: 5
+}
+.actif {
+  stroke: red;
+}
+#CB {
+  stroke: blue;
+}
+.noeudTexte {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  fill: blue;
+  /* factoriser 
+  */
+  text-anchor: middle;
+  alignment-baseline: central;
+}
+.noeudForme {
+  stroke: #939796;
+  /*
+  stroke: green;
+  */
+  stroke-width: 5;
+  fill: #a5c0c8;
+}
+.timeText {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: oblique;
+  font-size: 26px;
+  fill: purple;
+  /* factoriser 
+  */
+  text-anchor: middle;
+  alignment-baseline: central;
+}
+.fares {
+  
+  /* factoriser 
+  */
+  font-size: 26px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  alignment-baseline: central;
+
+}
+.timeFrame {
+  /* factoriser 
+  */
+  text-anchor: middle;
+  alignment-baseline: central;
+}
+#timeAC {
+  fill: red;
+}
+#trspTimes {
+}
+#graphReseau {
+  /* transform: translate(200px, 0);*/
+}
