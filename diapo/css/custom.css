@@ -1,8 +1,7 @@
 .reveal .slides {
-  /*top: 0 !important;*/
 }
 .reveal .slides>section {
-  top: 0px;
+  /* top: 0px; */
 }
 .reveal .slides .leftside {
   margin-right: 50%;
@@ -11,6 +10,8 @@
 /* SVG */
 
 svg {
+  /*
+  */
   position: absolute;
   right: 3%;
   bottom: 3%;
@@ -33,8 +34,9 @@ svg {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 30px;
   font-weight: bold;
-  fill: blue;
-  /* factoriser 
+  fill: white;
+  /* fill: blue;*/
+  /* factoriser
   */
   text-anchor: middle;
   alignment-baseline: central;
@@ -47,19 +49,21 @@ svg {
   stroke-width: 5;
   fill: #a5c0c8;
 }
+.monetat .noeudForme {
+  stroke: #ff0000;
+}
 .timeText {
   font-family: Helvetica, Arial, sans-serif;
   font-style: oblique;
   font-size: 26px;
   fill: purple;
-  /* factoriser 
+  /* factoriser
   */
   text-anchor: middle;
   alignment-baseline: central;
 }
 .fares {
-  
-  /* factoriser 
+  /* factoriser
   */
   font-size: 26px;
   font-family: Helvetica, Arial, sans-serif;
@@ -68,7 +72,7 @@ svg {
 
 }
 .timeFrame {
-  /* factoriser 
+  /* factoriser
   */
   text-anchor: middle;
   alignment-baseline: central;
@@ -78,6 +82,38 @@ svg {
 }
 #trspTimes {
 }
-#graphReseau {
-  /* transform: translate(200px, 0);*/
+
+.deplaceDroite{
+  /* transform: translate(200px, 0)
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 2s;
+  animation-name: example;
+  animation-duration: 2s;
+  */
+}
+.deplaceGaughe{
+  /* transform: translate(200px, 0);
+  -webkit-animation-name: exampleG;
+  -webkit-animation-duration: 2s;
+  animation-name: exampleG;
+  animation-duration: 2s;
+  */
+}
+
+@-webkit-keyframes example {
+    from {transform: translate(0px, 0);}
+    to {transform: translate(200px, 0)}
+}
+@keyframes example {
+    from {transform: translate(0px, 0);}
+    to {transform: translate(200px, 0)}
+}
+
+@-webkit-keyframes exampleG {
+    from {transform: translate(200px, 0)}
+    to {transform: translate(0px, 0);}
+}
+@keyframes exampleG {
+    from {transform: translate(200px, 0)}
+    to {transform: translate(0px, 0);}
 }

@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/white_dm.css">
+    <!-- <link rel="stylesheet" href="css/theme/sky.css"> -->
+    <!-- <link rel="stylesheet" href="css/theme/solarized.css"> -->
     <link rel="stylesheet" href="css/custom.css?3">
 
     <!-- Theme used for syntax highlighting of code -->
@@ -29,23 +31,24 @@
         <svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="900" height="500" version="1.1" viewBox="0 0 900 500">
           <defs>
           </defs>
-          <g id="graphReseau">
+          <g id="graphReseau" transform="translate(200, 0)">
             <line class="connectLine" id="AB" x1="34"  y1="250" x2="466" y2="250" />
-            <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="70" />
+            <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="70"  />
             <line class="connectLine" id="AD" x1="34"  y1="250" x2="250" y2="430" />
             <line class="connectLine" id="CB" x1="250" y1="70"  x2="466" y2="250" />
-            <line class="connectLine actif" id="DB" x1="250" y1="430" x2="466" y2="250" />
+            <line class="connectLine" id="DB" x1="250" y1="430" x2="466" y2="250" />
+            <!-- <line class="connectLine actif" id="DB" x1="250" y1="430" x2="466" y2="250" /> -->
 
             <circle r="36" class="noeudForme"    cx="34" cy="250"/>
             <text class="noeudTexte" id="lettreA" x="34"  y="250">A</text>
 
-            <circle r="32" class="noeudForme"    cx="466" cy="250"/>
+            <circle r="36" class="noeudForme"    cx="466" cy="250"/>
             <text class="noeudTexte" id="lettreB" x="466"  y="250">B</text>
 
-            <circle r="23" class="noeudForme"    cx="250" cy="70"/>
+            <circle r="28" class="noeudForme"    cx="250" cy="70"/>
             <text class="noeudTexte" id="lettreC" x="250"  y="70">C</text>
 
-            <circle r="23" class="noeudForme"    cx="250" cy="430"/>
+            <circle r="28" class="noeudForme"    cx="250" cy="430"/>
             <text class="noeudTexte" id="lettreD" x="250"  y="430">D</text>
 
             <!-- temps de transport -->
@@ -70,22 +73,46 @@
               <text class="timeFrame" id="departA1" x="34" y="250">[ 10am, 1pm ]</text>
             </g>
             <text class="timeFrame" id="departA2" x="34" y="250" transform="translate(0, -70)">[ 11am, 11:15am ]</text>
+          <animateTransform
+            id="moveLeft"
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            from="400 0"
+            to="200 0"
+            dur="500ms"
+            begin="indefinite"
+            fill="freeze"
+            ></animateTransform>
+          <animateTransform
+            id="moveRight"
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            from="200 0"
+            to="400 0"
+            dur="500ms"
+            begin="indefinite"
+            fill="freeze"
+            ></animateTransform>
           </g>
         </svg>
         <section>
-          <p>Ici un paragraphe après l'entête h1 (qui n'est plus là!) et qui s'étendra sur plusieurs lignes, si tout fonctionne correctement.</p>
+          <h1>Bid-N-Go</h1>
+          <h2>Mass transit reservation software</h2>
+          <p>How it works</p>
         </section>
         <section data-transition="slide-in fade-out" data-state="monetat">
           <h3>Titre de la section</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul class="leftside">
-              <li id="nouvel" class="fragment fade-in-then-semi-out">Un nouvel essai avec svg:</li>
+              <li id="nouvel" class="fade-in-then-semi-out">Un nouvel essai avec svg:</li>
               <li id="deux" class="fragment fade-in-then-semi-out">Un deuxième fragment</li>
               <li class="fragment fade-in-then-semi-out">...puis, un troisième. Supposons que cet item soit très long. Si long qu'il empiète sur l'image.</li>
             </ul>
           </div>
         </section>
-        <section data-transition="fade-in fade-out">
+        <section data-transition="fade-in fade-out" data-state="monetat">
           <h3>Section suivante, même schema</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul>
@@ -93,6 +120,10 @@
               <li class="fragment fade-in-then-semi-out">...cinquième</li>
             </ul>
           </div>
+        </section>
+        <section data-transition="slide-in slide-out">
+          <h2>Fin</h2>
+          <p>C'est bien la fin !</p>
         </section>
       </div>
     </div>
@@ -104,7 +135,8 @@
       // More info about config & dependencies:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
-      sayHello = () => console.log('bonjour le monde')
+      const sayHello = () => console.log('hello')
+
       Reveal.initialize({
         margin: 0.01,
         center: false,
@@ -113,16 +145,76 @@
       Reveal.configure({
         slideNumber: 'c/t',
       })
+
+
+      // let graphReseauStatus = 'left';
+      // var graphReseau = document.getElementById("graphReseau")
+      var animateMoveRight = document.getElementById("moveRight")
+      var animateMoveLeft = document.getElementById("moveLeft")
+      /*
+      const moveGraphLeft = () => {
+        if (graphReseauStatus != 'left') {
+          animateMoveLeft.beginElement()
+          graphReseauStatus = 'left'
+        }
+      }
+      const moveGraphRight = () => {
+        if (graphReseauStatus != 'right') {
+          animateMoveRight.beginElement()
+          graphReseauStatus = 'right'
+        }
+      }
+      */
+      
+      /* closure */
+      const moveGraph = (function() {
+        var _graphLocation = 'left'
+        return {
+          toLeft: function() {
+            (_graphLocation === 'right') && animateMoveLeft.beginElement()
+            _graphLocation = 'left'
+          },
+          toRight: function() {
+            (_graphLocation === 'left') && animateMoveRight.beginElement()
+            _graphLocation = 'right'
+          }
+        }
+      })()
+      console.log('moveGraph:', moveGraph)
+
       Reveal.addEventListener('slidechanged', function(e) {
-        console.log('index h, v:', e.indexh, e.indexv)
-        var graphReseau = document.getElementById("graphReseau")
-        switch(e.indexh) {
-          case 1:
-            console.log('un est atteint')
-            graphReseau.setAttribute("transform", "translate(300, 0)")
+        console.log('index h:', e.indexh, '; v:', e.indexv)
+        // console.log('slide précédente:', e.previousSlide)
+        // console.log('html', typeof document.documentElement.classList, document.documentElement.classList)
+        // console.log('html', typeof document.documentElement.classList, document.documentElement.classList.contains('monetat'))
+        // console.log(document.querySelector('.monetat'))
+        // if (document.querySelector('.monetat') !== null) {
+        var classes = document.documentElement.classList 
+        if (classes.contains('monetat')) {
+          console.log('monetat détecté')
+          // moveGraphRight()
+          moveGraph.toRight()
+        } else {
+          // moveGraphLeft()
+          moveGraph.toLeft()
+        }
+
+        switch(String(e.indexh)) {
+          case "1":
+            // moveGraphRight()
+            // console.log('1 est atteint, the graph is ', graphReseauStatus)
+          case "2":
+            // moveGraphRight()
+            // console.log('2 est atteint,  the graph is ', graphReseauStatus)
+            // graphReseau.setAttribute("transform", "translate(300, 0)")
+            // graphReseau.classList.add("deplaceDroite")
             break
+          case "0":
           default:
-            graphReseau.setAttribute("transform", "translate(0, 0)")
+            // moveGraphLeft()
+            // console.log('default,  the graph is ', graphReseauStatus)
+            // graphReseau.classList.remove("deplaceDroite")
+            // graphReseau.setAttribute("transform", "translate(0, 0)")
         }
       })
       Reveal.addEventListener('fragmentshown', function(e) {
@@ -130,7 +222,7 @@
         // sayHello()
 
         // var svgDoc = actuel.contentDocument
-        // console.log('shown:', e.fragment.id)
+        console.log('shown:', e.fragment.id)
 
         // switch(e.fragment.id) {
         //   case 'deux':
@@ -142,6 +234,7 @@
         // }
       })
       Reveal.addEventListener('fragmenthidden', function(e) {
+        sayHello()
         console.log('fragment caché:', e.fragment.id)
       })
       // Reveal.addEventListener('monetat', function(e) {
