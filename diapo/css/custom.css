@@ -43,15 +43,14 @@ svg {
 }
 .noeudForme {
   stroke: #939796;
-  /*
-  stroke: green;
-  */
   stroke-width: 5;
   fill: #a5c0c8;
 }
+/*
 .monetat .noeudForme {
   stroke: #ff0000;
 }
+*/
 .timeText {
   font-family: Helvetica, Arial, sans-serif;
   font-style: oblique;
@@ -116,4 +115,17 @@ svg {
 @keyframes exampleG {
     from {transform: translate(200px, 0)}
     to {transform: translate(0px, 0);}
+}
+
+/* events page change */
+.frontpage #graphReseau {
+  display: none;
+}
+#noeudA.hlab {
+  -webkit-animation: mymove 1s 3;
+  animation: flashing 1s 3;
+}
+@-webkit-keyframes flashing {
+    from {stroke: #939796;}
+    to {stroke: #ff0000;}
 }

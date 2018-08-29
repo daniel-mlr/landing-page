@@ -7,7 +7,7 @@
     <title>reveal.js</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/white_dm.css">
+    <link rel="stylesheet" href="css/theme/solarized.css">
     <!-- <link rel="stylesheet" href="css/theme/sky.css"> -->
     <!-- <link rel="stylesheet" href="css/theme/solarized.css"> -->
     <link rel="stylesheet" href="css/custom.css?3">
@@ -31,41 +31,41 @@
         <svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="900" height="500" version="1.1" viewBox="0 0 900 500">
           <defs>
           </defs>
-          <g id="graphReseau" transform="translate(200, 0)">
+          <g id="graphReseau" transform="translate(200, 40)">
             <line class="connectLine" id="AB" x1="34"  y1="250" x2="466" y2="250" />
-            <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="70"  />
-            <line class="connectLine" id="AD" x1="34"  y1="250" x2="250" y2="430" />
-            <line class="connectLine" id="CB" x1="250" y1="70"  x2="466" y2="250" />
-            <line class="connectLine" id="DB" x1="250" y1="430" x2="466" y2="250" />
+            <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="90"  />
+            <line class="connectLine" id="AD" x1="34"  y1="250" x2="250" y2="410" />
+            <line class="connectLine" id="CB" x1="250" y1="90"  x2="466" y2="250" />
+            <line class="connectLine" id="DB" x1="250" y1="410" x2="466" y2="250" />
             <!-- <line class="connectLine actif" id="DB" x1="250" y1="430" x2="466" y2="250" /> -->
 
-            <circle r="36" class="noeudForme"    cx="34" cy="250"/>
-            <text class="noeudTexte" id="lettreA" x="34"  y="250">A</text>
+            <circle class="noeudForme" id="noeudA" cx="34" cy="250 "r="36" />
+            <text class="noeudTexte" id="lettreA"   x="34"  y="250">A</text>
 
-            <circle r="36" class="noeudForme"    cx="466" cy="250"/>
-            <text class="noeudTexte" id="lettreB" x="466"  y="250">B</text>
+            <circle class="noeudForme" id="noeudB" cx="466" cy="250" r="36"/>
+            <text class="noeudTexte" id="lettreB"   x="466"  y="250">B</text>
 
-            <circle r="28" class="noeudForme"    cx="250" cy="70"/>
-            <text class="noeudTexte" id="lettreC" x="250"  y="70">C</text>
+            <circle class="noeudForme" id="noeudC" cx="250" cy="90" r="28"/>
+            <text class="noeudTexte" id="lettreC"   x="250"  y="90">C</text>
 
-            <circle r="28" class="noeudForme"    cx="250" cy="430"/>
-            <text class="noeudTexte" id="lettreD" x="250"  y="430">D</text>
+            <circle class="noeudForme" id="noeudD" cx="250" cy="410" r="28"/>
+            <text class="noeudTexte" id="lettreD"   x="250"  y="410">D</text>
 
             <!-- temps de transport -->
-            <g id="trspTimesUp" transform="translate(0, 22)">
-              <text class="timeText" id="timeAB" x="250" y="245">1 hour </text>
-              <text class="timeText" id="timeAC" x="150" y="150" transform="rotate(-40, 150, 150)">45 min.</text>
-              <text class="timeText" id="timeCB" x="350" y="150" transform="rotate( 40, 350, 150)">45 min.</text>
+            <g id="trspTimesUp" transform="translate(0, 34)">
+              <text class="timeText" id="timeAB" x="250" y="234">1 hour </text>
+              <text class="timeText" id="timeAC" x="150" y="150" transform="rotate(-36.7, 150, 150)">45 min.</text>
+              <text class="timeText" id="timeCB" x="350" y="150" transform="rotate( 36.7, 350, 150)">45 min.</text>
             </g>
-            <g id="trspTimesDown" transform="translate(0, -22)">
-              <text class="timeText" id="timeAD" x="150" y="350" transform="rotate( 40, 150, 350)">45 min.</text>
-              <text class="timeText" id="timeDB" x="354" y="350" transform="rotate(-40, 350, 350)">45 min.</text>
+            <g id="trspTimesDown" transform="translate(0, -34)">
+              <text class="timeText" id="timeAD" x="150" y="350" transform="rotate( 36.7, 150, 350)">45 min.</text>
+              <text class="timeText" id="timeDB" x="354" y="350" transform="rotate(-36.7, 350, 350)">45 min.</text>
             </g>
 
             <!-- fares -->
-            <g transform="translate(0, -22)">
-              <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-40, 150, 150)">$40 x 1</text>
-              <text class="fares" id="fareCB" x="355" y="155" transform="rotate( 40, 355, 155)">$(optimal offer)</text>
+            <g transform="translate(0, -12)">
+              <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-36.7, 150, 150)">$40 x 1</text>
+              <text class="fares" id="fareCB" x="360" y="155" transform="rotate( 36.7, 355, 155)">$(optimal offer)</text>
             </g>
             <!-- horaires -->
             <g id="timeFrames" transform="translate(0, -50)">
@@ -78,8 +78,8 @@
             attributeName="transform"
             attributeType="XML"
             type="translate"
-            from="400 0"
-            to="200 0"
+            from="380 40"
+            to="200 40"
             dur="500ms"
             begin="indefinite"
             fill="freeze"
@@ -89,24 +89,30 @@
             attributeName="transform"
             attributeType="XML"
             type="translate"
-            from="200 0"
-            to="400 0"
+            from="200 40"
+            to="380 40"
             dur="500ms"
             begin="indefinite"
             fill="freeze"
             ></animateTransform>
           </g>
         </svg>
-        <section>
+        <section data-transition="slide" data-state="frontpage">
           <h1>Bid-N-Go</h1>
           <h2>Mass transit reservation software</h2>
-          <p>How it works</p>
+          <h4>How it works</h4>
+          <p>(Hit space-bar, arrow-right or swipe)</p>
+          <p>(Hit F to go full page, esc to browser size)</p>
+        </section>
+        <section>
+          <h2>How it works:</h2>
+          <p>Suppose we have a network of four cities, as schematised on the graph below:</p>
         </section>
         <section data-transition="slide-in fade-out" data-state="monetat">
-          <h3>Titre de la section</h3>
+          <h3>You are traveller 1</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul class="leftside">
-              <li id="nouvel" class="fade-in-then-semi-out">Un nouvel essai avec svg:</li>
+              <li id="nouvel" class="fade-in-then-semi-out">You need to travel from A to B next Thursday</li>
               <li id="deux" class="fragment fade-in-then-semi-out">Un deuxième fragment</li>
               <li class="fragment fade-in-then-semi-out">...puis, un troisième. Supposons que cet item soit très long. Si long qu'il empiète sur l'image.</li>
             </ul>
@@ -147,26 +153,11 @@
       })
 
 
-      // let graphReseauStatus = 'left';
-      // var graphReseau = document.getElementById("graphReseau")
+      /* get the animations tags */
       var animateMoveRight = document.getElementById("moveRight")
       var animateMoveLeft = document.getElementById("moveLeft")
-      /*
-      const moveGraphLeft = () => {
-        if (graphReseauStatus != 'left') {
-          animateMoveLeft.beginElement()
-          graphReseauStatus = 'left'
-        }
-      }
-      const moveGraphRight = () => {
-        if (graphReseauStatus != 'right') {
-          animateMoveRight.beginElement()
-          graphReseauStatus = 'right'
-        }
-      }
-      */
-      
-      /* closure */
+
+      /* module moveGraph */
       const moveGraph = (function() {
         var _graphLocation = 'left'
         return {
@@ -183,59 +174,41 @@
       console.log('moveGraph:', moveGraph)
 
       Reveal.addEventListener('slidechanged', function(e) {
-        console.log('index h:', e.indexh, '; v:', e.indexv)
-        // console.log('slide précédente:', e.previousSlide)
-        // console.log('html', typeof document.documentElement.classList, document.documentElement.classList)
-        // console.log('html', typeof document.documentElement.classList, document.documentElement.classList.contains('monetat'))
-        // console.log(document.querySelector('.monetat'))
-        // if (document.querySelector('.monetat') !== null) {
-        var classes = document.documentElement.classList 
+        var classes = document.documentElement.classList
         if (classes.contains('monetat')) {
-          console.log('monetat détecté')
-          // moveGraphRight()
           moveGraph.toRight()
         } else {
-          // moveGraphLeft()
           moveGraph.toLeft()
         }
 
         switch(String(e.indexh)) {
           case "1":
-            // moveGraphRight()
-            // console.log('1 est atteint, the graph is ', graphReseauStatus)
           case "2":
-            // moveGraphRight()
-            // console.log('2 est atteint,  the graph is ', graphReseauStatus)
-            // graphReseau.setAttribute("transform", "translate(300, 0)")
-            // graphReseau.classList.add("deplaceDroite")
             break
           case "0":
           default:
-            // moveGraphLeft()
-            // console.log('default,  the graph is ', graphReseauStatus)
-            // graphReseau.classList.remove("deplaceDroite")
-            // graphReseau.setAttribute("transform", "translate(0, 0)")
         }
       })
       Reveal.addEventListener('fragmentshown', function(e) {
-        // console.log('fragment actuel', e)
-        // sayHello()
-
-        // var svgDoc = actuel.contentDocument
         console.log('shown:', e.fragment.id)
-
-        // switch(e.fragment.id) {
-        //   case 'deux':
-        //     console.log('cas deux')
-        //     svgDoc.getElementById('tWindow1').setAttribute('fill', '#ff0000')
-        //     break
-        //   default:
-        //     console.log('défaut')
-        // }
+        if (e.fragment.id === 'deux') {
+          document.getElementById('#noeudA').classList.add("hlab")
+        }
+        switch(e.fragment.id) {
+          case 'deux':
+            console.log('cas deux')
+            svgDoc.getElementById('tWindow1').setAttribute('fill', '#ff0000')
+            break
+          default:
+            console.log('défaut')
+        }
       })
       Reveal.addEventListener('fragmenthidden', function(e) {
         sayHello()
         console.log('fragment caché:', e.fragment.id)
+        if (e.fragment.id === 'deux') {
+          // document.getElementById('#noeudA').classList.remove("hlab")
+        }
       })
       // Reveal.addEventListener('monetat', function(e) {
       //   console.log(Reveal.getState())
