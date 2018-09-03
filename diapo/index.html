@@ -7,10 +7,10 @@
     <title>reveal.js</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/solarized.css">
+    <link rel="stylesheet" href="css/theme/solarized_dm.css">
     <!-- <link rel="stylesheet" href="css/theme/sky.css"> -->
     <!-- <link rel="stylesheet" href="css/theme/solarized.css"> -->
-    <link rel="stylesheet" href="css/custom.css?3">
+    <link rel="stylesheet" href="css/custom.css?6">
 
     <!-- Theme used for syntax highlighting of code -->
     <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
@@ -69,7 +69,7 @@
             </g>
             <!-- horaires -->
             <g id="timeFrames" transform="translate(0, -50)">
-              <text class="timeFrame" id="arivalB" x="466" y="250">[ 2pm ]</text>
+              <text class="timeFrame" id="arrivalB" x="466" y="250">[ 2pm ]</text>
               <text class="timeFrame" id="departA1" x="34" y="250">[ 10am, 1pm ]</text>
             </g>
             <text class="timeFrame" id="departA2" x="34" y="250" transform="translate(0, -70)">[ 11am, 11:15am ]</text>
@@ -98,6 +98,9 @@
           </g>
         </svg>
         <section data-transition="slide" data-state="frontpage">
+          <img id="logo" src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532337024/landing_page/logo1.svg.png"
+          alt="Logo"
+          width="140" height="90">
           <h1>Bid-N-Go</h1>
           <h2>Mass transit reservation software</h2>
           <h4>How it works</h4>
@@ -108,13 +111,13 @@
           <h2>How it works:</h2>
           <p>Suppose we have a network of four cities, as schematised on the graph below:</p>
         </section>
-        <section data-transition="slide-in fade-out" data-state="monetat">
-          <h3>You are traveller 1</h3>
+        <section data-transition="slide-in fade-out" data-state="howItWorks">
+          <h3>You are traveller 1 ...</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul class="leftside">
-              <li id="nouvel" class="fade-in-then-semi-out">You need to travel from A to B next Thursday</li>
-              <li id="deux" class="fragment fade-in-then-semi-out">Un deuxième fragment</li>
-              <li class="fragment fade-in-then-semi-out">...puis, un troisième. Supposons que cet item soit très long. Si long qu'il empiète sur l'image.</li>
+              <li id="travelAB" class="fragment fade-in-then-semi-out">You need to travel from A to B next Thursday.</li>
+              <li id="bAt2pm" class="fragment fade-in-then-semi-out">You need to be in B at 2:00 pm at the latest.</li>
+              <li id="fastestAB" class="fragment fade-in-then-semi-out">The fastest possible travel time between A and B is one hour.</li>
             </ul>
           </div>
         </section>
@@ -137,10 +140,12 @@
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
 
+    <script src="js/custom.js"></script>
     <script>
       // More info about config & dependencies:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
+      /*
       const sayHello = () => console.log('hello')
 
       Reveal.initialize({
@@ -153,11 +158,11 @@
       })
 
 
-      /* get the animations tags */
+      // get the animations tags
       var animateMoveRight = document.getElementById("moveRight")
       var animateMoveLeft = document.getElementById("moveLeft")
 
-      /* module moveGraph */
+      // module moveGraph
       const moveGraph = (function() {
         var _graphLocation = 'left'
         return {
@@ -214,6 +219,7 @@
       //   console.log(Reveal.getState())
       //   console.log('monetat activé', e)
       // }, false );
+      */
     </script>
   </body>
 </html>

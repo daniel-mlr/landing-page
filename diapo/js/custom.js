@@ -1,4 +1,5 @@
 /* global Reveal */
+
 // More info about config & dependencies:
 // - https://github.com/hakimel/reveal.js#configuration
 // - https://github.com/hakimel/reveal.js#dependencies
@@ -35,7 +36,7 @@ console.log('moveGraph:', moveGraph)
 
 Reveal.addEventListener('slidechanged', function (e) {
   var classes = document.documentElement.classList
-  if (classes.contains('monetat')) {
+  if (classes.contains('howItWorks')) {
     moveGraph.toRight()
   } else {
     moveGraph.toLeft()
@@ -51,9 +52,18 @@ Reveal.addEventListener('slidechanged', function (e) {
 })
 Reveal.addEventListener('fragmentshown', function (e) {
   console.log('shown:', e.fragment.id)
-  if (e.fragment.id === 'deux') {
-    document.getElementById('#noeudA').classList.add('hlab')
+  if (e.fragment.id === 'travelAB') {
+    document.getElementById('noeudA').classList.add('hlab')
+    document.getElementById('noeudB').classList.add('hlab')
+    document.getElementById('AB').classList.add('hlab')
   }
+  if (e.fragment.id === 'bAt2pm') {
+    document.getElementById('arrivalB').classList.add('active')
+  }
+  if (e.fragment.id === 'fastestAB') {
+    document.getElementById('timeAB').classList.add('active')
+  }
+  /*
   switch (e.fragment.id) {
     case 'deux':
       console.log('cas deux')
@@ -62,15 +72,25 @@ Reveal.addEventListener('fragmentshown', function (e) {
     default:
       console.log('défaut')
   }
+  */
 })
 Reveal.addEventListener('fragmenthidden', function (e) {
   sayHello()
   console.log('fragment caché:', e.fragment.id)
-  if (e.fragment.id === 'deux') {
+  if (e.fragment.id === 'travelAB') {
     // document.getElementById('#noeudA').classList.remove("hlab")
+    document.getElementById('noeudA').classList.remove('hlab')
+    document.getElementById('noeudB').classList.remove('hlab')
+    document.getElementById('AB').classList.remove('hlab')
+  }
+  if (e.fragment.id === 'bAt2pm') {
+    document.getElementById('arrivalB').classList.remove('active')
+  }
+  if (e.fragment.id === 'fastestAB') {
+    document.getElementById('timeAB').classList.remove('active')
   }
 })
 // Reveal.addEventListener('monetat', function(e) {
-//   console.log(Reveal.getState())
-//   console.log('monetat activé', e)
+// utile seulement pour ajouter foctionalités supplémentaires
+// généralement mettre data-state="monetat" dans la section suffit.
 // }, false );

@@ -16,7 +16,9 @@ svg {
   right: 3%;
   bottom: 3%;
   margin: auto;
+  /* pour identifier
   border: 2px solid red;
+  */
   font-size: 20px;
 }
 
@@ -28,8 +30,14 @@ svg {
   stroke: red;
 }
 #CB {
+  /* exemple
   stroke: blue;
+  */
 }
+#AB.active {
+  stroke: red;
+}
+
 .noeudTexte {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 30px;
@@ -52,6 +60,11 @@ svg {
 }
 */
 .timeText {
+    display: none
+ }
+
+.timeText.active {
+  display: inline;
   font-family: Helvetica, Arial, sans-serif;
   font-style: oblique;
   font-size: 26px;
@@ -62,8 +75,12 @@ svg {
   alignment-baseline: central;
 }
 .fares {
+  display: none;
+}
+.fares.active {
   /* factoriser
   */
+  display: block;
   font-size: 26px;
   font-family: Helvetica, Arial, sans-serif;
   text-anchor: middle;
@@ -71,10 +88,16 @@ svg {
 
 }
 .timeFrame {
+  display: none;
+}
+.timeFrame.active {
   /* factoriser
   */
+  display: block;
   text-anchor: middle;
   alignment-baseline: central;
+  -webkit-animation: flashingGreen 300ms 5 forwards;
+  animation: flashingGreen 300ms 5 forwards;
 }
 #timeAC {
   fill: red;
@@ -121,11 +144,24 @@ svg {
 .frontpage #graphReseau {
   display: none;
 }
-#noeudA.hlab {
-  -webkit-animation: mymove 1s 3;
-  animation: flashing 1s 3;
+#noeudA.hlab, #noeudB.hlab, #AB.hlab {
+  -webkit-animation: flashing 300ms 5 forwards;
+  animation: flashing 300ms 5 forwards;
+}
+#arrivalB.active {
+  -webkit-animation: flashingGreen 300ms 5 forwards;
+  animation: flashingGreen 300ms 5 forwards;
 }
 @-webkit-keyframes flashing {
     from {stroke: #939796;}
     to {stroke: #ff0000;}
+}
+@-webkit-keyframes flashingGreen {
+    from {stroke: #fff;}
+    to {stroke: #00cc00;}
+}
+#logo {
+  display: inline;
+  border: 0;
+  box-shadow: none;
 }
