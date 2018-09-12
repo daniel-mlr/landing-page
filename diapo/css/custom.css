@@ -60,10 +60,13 @@ svg {
 }
 */
 .timeText {
-    display: none
- }
+  /*
+  display: none
+   */
+}
 
-.timeText.active {
+/* .timeText.active { */
+.timeText {
   display: inline;
   font-family: Helvetica, Arial, sans-serif;
   font-style: oblique;
@@ -84,6 +87,7 @@ svg {
   font-size: 26px;
   font-family: Helvetica, Arial, sans-serif;
   text-anchor: middle;
+  stroke: #939796;
   alignment-baseline: central;
 
 }
@@ -98,9 +102,6 @@ svg {
   alignment-baseline: central;
   -webkit-animation: flashingGreen 300ms 5 forwards;
   animation: flashingGreen 300ms 5 forwards;
-}
-#timeAC {
-  fill: red;
 }
 #trspTimes {
 }
@@ -144,11 +145,11 @@ svg {
 .frontpage #graphReseau {
   display: none;
 }
-#noeudA.hlab, #noeudB.hlab, #AB.hlab {
+#noeudA.hlab, #noeudB.hlab, #AB.hlab, #AC.hlab, #noeudC.hlab{
   -webkit-animation: flashing 300ms 5 forwards;
   animation: flashing 300ms 5 forwards;
 }
-#arrivalB.active {
+#arrivalB.active, #arrivalC.active {
   -webkit-animation: flashingGreen 300ms 5 forwards;
   animation: flashingGreen 300ms 5 forwards;
 }
@@ -164,4 +165,16 @@ svg {
   display: inline;
   border: 0;
   box-shadow: none;
+}
+#keepOffer1 {
+  margin-top: 100px;
+}
+#keepOffer2 {
+  margin-top: 140px;
+}
+tspan {
+  display: none;
+}
+.dimmed {
+  opacity: 0.5;
 }

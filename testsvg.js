@@ -332,7 +332,7 @@ function unhi (elem) {
     case 14:
       SVG.get('CB').stop().stroke(edgeColor)
       SVG.get('AC').stop().stroke(edgeColor)
-      SVG.get('fareAB').stop().hide()
+      SVG.get('fareAB').stop().cx(centerV).cy(centerH + 16).rotate(0)
       break
   }
 }

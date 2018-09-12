@@ -64,37 +64,84 @@
 
             <!-- fares -->
             <g transform="translate(0, -12)">
-              <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-36.7, 150, 150)">$40 x 1</text>
+              <text class="fares" id="fareAB" x="250" y="238">$20</text>
+              <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-36.7, 150, 150)">$40<tspan id="nbPassAC"> x 1</tspan></text>
               <text class="fares" id="fareCB" x="360" y="155" transform="rotate( 36.7, 355, 155)">$(optimal offer)</text>
             </g>
             <!-- horaires -->
             <g id="timeFrames" transform="translate(0, -50)">
               <text class="timeFrame" id="arrivalB" x="466" y="250">[ 2pm ]</text>
               <text class="timeFrame" id="departA1" x="34" y="250">[ 10am, 1pm ]</text>
+              <text class="timeFrame" id="arrivalC" x="250" y="95">[ 12pm ]</text>
             </g>
             <text class="timeFrame" id="departA2" x="34" y="250" transform="translate(0, -70)">[ 11am, 11:15am ]</text>
-          <animateTransform
-            id="moveLeft"
-            attributeName="transform"
-            attributeType="XML"
-            type="translate"
-            from="380 40"
-            to="200 40"
-            dur="500ms"
-            begin="indefinite"
-            fill="freeze"
-            ></animateTransform>
-          <animateTransform
-            id="moveRight"
-            attributeName="transform"
-            attributeType="XML"
-            type="translate"
-            from="200 40"
-            to="380 40"
-            dur="500ms"
-            begin="indefinite"
-            fill="freeze"
-            ></animateTransform>
+            <animateTransform
+              id="moveLeft"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              from="380 40"
+              to="200 40"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="moveRight"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              from="200 40"
+              to="380 40"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+          </g>
+          <g id="minibus" transform="translate(-300, -100)">
+            <image x="10" y="10" width="300" height="300" xlink:href="../img/gustavorezende_bus_2.svg" />
+              <animateTransform
+                id="busIn"
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                to="0 -100"
+                dur="500ms"
+                begin="indefinite"
+                fill="freeze"
+                ></animateTransform>
+              <animateTransform
+                id="busOut"
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                to="-300 -100"
+                dur="500ms"
+                begin="indefinite"
+                fill="freeze"
+                ></animateTransform>
+              <animateTransform
+                id="busA"
+                attributeName="transform"
+                attributeType="XML"
+                type="scale"
+                from="1"
+                to="0.5"
+                dur="1000ms"
+                begin="indefinite"
+                fill="freeze"
+                ></animateTransform>
+              <animateTransform
+                id="bus2A"
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                from="0 -100"
+                to="200 150"
+                dur="1000ms"
+                begin="indefinite"
+                fill="freeze"
+                ></animateTransform>
           </g>
         </svg>
         <section data-transition="slide" data-state="frontpage">
@@ -109,7 +156,7 @@
         </section>
         <section>
           <h2>How it works:</h2>
-          <p>Suppose we have a network of four cities, as schematised on the graph below:</p>
+          <p>Say we have a network of four cities with different travel times between each ones, as schematised on the graph below:</p>
         </section>
         <section data-transition="slide-in fade-out" data-state="howItWorks">
           <h3>You are traveller 1 ...</h3>
@@ -117,19 +164,34 @@
             <ul class="leftside">
               <li id="travelAB" class="fragment fade-in-then-semi-out">You need to travel from A to B next Thursday.</li>
               <li id="bAt2pm" class="fragment fade-in-then-semi-out">You need to be in B at 2:00 pm at the latest.</li>
-              <li id="fastestAB" class="fragment fade-in-then-semi-out">The fastest possible travel time between A and B is one hour.</li>
+              <!-- <li id="fastestAB" class="fragment fade-in-then-semi-out">The fastest possible travel time between A and B is one hour.</li> -->
+              <li id="ready3h" class="fragment fade-in-then-semi-out">You can leave up to three hours earlier than necessary.</li>
+              <li id="fare20" class="fragment fade-in-then-semi-out">You think that $20 would be a reasonable fare for this journey.</li>
+              <li id="keepOffer1" class="fragment fade-in-then-semi-out">You want to hold this offer until Wednesday at noon.</li>
             </ul>
           </div>
         </section>
-        <section data-transition="fade-in fade-out" data-state="monetat">
-          <h3>Section suivante, même schema</h3>
+        <section data-transition="fade-in fade-out" data-state="howItWorks">
+          <h3>Meanwhile, there is traveller 2 ...</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul>
-              <li class="fragment fade-in-then-semi-out">quatrième étape</li>
-              <li class="fragment fade-in-then-semi-out">...cinquième</li>
+              <li id="travelAC" class="fragment fade-in-then-semi-out">Who also travel Thursday, but from A to C</li>
+              <li id="cAt12pm" class="fragment fade-in-then-semi-out">He needs to be in C at 12:00pm</li>
+              <li id="stricter"class="fragment fade-in-then-semi-out">His time schedule is stricter: he doesn't want to start his journey more than 1/4 hour earlier than necessary</li>
+              <li id="fare40" class="fragment leftside fade-in-then-semi-out">In order to meet this stricter requirement he is ready to bid up to $40 for this journey.</li>
+              <li id="keepOffer2" class="fragment leftside fade-in-then-semi-out">He also keeps his offer valid until Wednesday morning.</li>
             </ul>
           </div>
         </section>
+        <section data-transition="slide-in fade-out" data-state="offerSide">
+          <h3>On the other side, here is provider 1 ...</h3>
+          <ul>
+           <li id="van8pass"    class="fragment fade-in-then-semi-out">She own a minivan of 8 passengers capacity.</li>
+           <li id="vanA"        class="fragment fade-in-then-semi-out">She plan to be in A Thursday morning</li>
+           <li id="potential60" class="fragment fade-in-then-semi-out">The system inform her of a potential deal of $60 with 2 passengers from A to B via C if she leaves from A between 11:00 am and 11:15 am</li>
+          </ul>
+        </section>
+
         <section data-transition="slide-in slide-out">
           <h2>Fin</h2>
           <p>C'est bien la fin !</p>
@@ -139,87 +201,6 @@
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
-
     <script src="js/custom.js"></script>
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
-      /*
-      const sayHello = () => console.log('hello')
-
-      Reveal.initialize({
-        margin: 0.01,
-        center: false,
-        slideNumber: true
-      });
-      Reveal.configure({
-        slideNumber: 'c/t',
-      })
-
-
-      // get the animations tags
-      var animateMoveRight = document.getElementById("moveRight")
-      var animateMoveLeft = document.getElementById("moveLeft")
-
-      // module moveGraph
-      const moveGraph = (function() {
-        var _graphLocation = 'left'
-        return {
-          toLeft: function() {
-            (_graphLocation === 'right') && animateMoveLeft.beginElement()
-            _graphLocation = 'left'
-          },
-          toRight: function() {
-            (_graphLocation === 'left') && animateMoveRight.beginElement()
-            _graphLocation = 'right'
-          }
-        }
-      })()
-      console.log('moveGraph:', moveGraph)
-
-      Reveal.addEventListener('slidechanged', function(e) {
-        var classes = document.documentElement.classList
-        if (classes.contains('monetat')) {
-          moveGraph.toRight()
-        } else {
-          moveGraph.toLeft()
-        }
-
-        switch(String(e.indexh)) {
-          case "1":
-          case "2":
-            break
-          case "0":
-          default:
-        }
-      })
-      Reveal.addEventListener('fragmentshown', function(e) {
-        console.log('shown:', e.fragment.id)
-        if (e.fragment.id === 'deux') {
-          document.getElementById('#noeudA').classList.add("hlab")
-        }
-        switch(e.fragment.id) {
-          case 'deux':
-            console.log('cas deux')
-            svgDoc.getElementById('tWindow1').setAttribute('fill', '#ff0000')
-            break
-          default:
-            console.log('défaut')
-        }
-      })
-      Reveal.addEventListener('fragmenthidden', function(e) {
-        sayHello()
-        console.log('fragment caché:', e.fragment.id)
-        if (e.fragment.id === 'deux') {
-          // document.getElementById('#noeudA').classList.remove("hlab")
-        }
-      })
-      // Reveal.addEventListener('monetat', function(e) {
-      //   console.log(Reveal.getState())
-      //   console.log('monetat activé', e)
-      // }, false );
-      */
-    </script>
   </body>
 </html>

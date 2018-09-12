@@ -25,9 +25,6 @@ section {
 .button:disabled {
   cursor: default; }
 
-.button:disabled {
-  cursor: default; }
-
 .is-active {
   font-weight: bold; }
 
@@ -154,7 +151,7 @@ a.active {
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 290px;
+    width: 11em;
     font-size: 1.8em;
     padding: 10px; }
     #jumbo .button a {

@@ -3,7 +3,6 @@
 // More info about config & dependencies:
 // - https://github.com/hakimel/reveal.js#configuration
 // - https://github.com/hakimel/reveal.js#dependencies
-const sayHello = () => console.log('hello')
 
 Reveal.initialize({
   margin: 0.01,
@@ -32,26 +31,57 @@ const moveGraph = (function () {
     }
   }
 })()
-console.log('moveGraph:', moveGraph)
+
+var animateBusIn = document.getElementById('busIn')
+var animateBusA = document.getElementById('busA')
+var animateBus2A = document.getElementById('bus2A')
+var animateBusOut = document.getElementById('busOut')
+
+const moveBus = (function () {
+  var _busPosition = 'out'
+  return {
+    toIn: function () {
+      (_busPosition !== 'in') && animateBusIn.beginElement()
+      _busPosition = 'in'
+    },
+    toA: function () {
+      (_busPosition !== 'a') && animateBus2A.beginElement() && animateBusA.beginElement()
+      // (_busPosition !== 'a') && animateBus2A.beginElement()
+      _busPosition = 'a'
+    },
+    toOut: function () {
+      (_busPosition !== 'out') && animateBusOut.beginElement()
+      _busPosition = 'out'
+    }
+  }
+})()
 
 Reveal.addEventListener('slidechanged', function (e) {
   var classes = document.documentElement.classList
   if (classes.contains('howItWorks')) {
     moveGraph.toRight()
+    moveBus.toOut()
+  } else if (classes.contains('offerSide')) {
+    moveGraph.toRight()
+    moveBus.toIn()
+    console.log('moveBus.toIn() appelé')
   } else {
     moveGraph.toLeft()
+    moveBus.toOut()
   }
-
-  switch (String(e.indexh)) {
-    case '1':
-    case '2':
-      break
-    case '0':
-    default:
-  }
+  // switch (true) {
+  //   case classes.contains('offerSide'):
+  //     moveBus.toIn()
+  //   case classes.contains('howItWorks'):
+  //     moveGraph.toRight()
+  //     break
+  //   case '2':
+  //     break
+  //   case '0':
+  //   default:
+  // }
 })
 Reveal.addEventListener('fragmentshown', function (e) {
-  console.log('shown:', e.fragment.id)
   if (e.fragment.id === 'travelAB') {
     document.getElementById('noeudA').classList.add('hlab')
     document.getElementById('noeudB').classList.add('hlab')
@@ -60,23 +90,41 @@ Reveal.addEventListener('fragmentshown', function (e) {
   if (e.fragment.id === 'bAt2pm') {
     document.getElementById('arrivalB').classList.add('active')
   }
-  if (e.fragment.id === 'fastestAB') {
-    document.getElementById('timeAB').classList.add('active')
+  // if (e.fragment.id === 'fastestAB') {
+  //   document.getElementById('timeAB').classList.add('active')
+  // }
+  if (e.fragment.id === 'ready3h') {
+    document.getElementById('departA1').classList.add('active')
   }
-  /*
-  switch (e.fragment.id) {
-    case 'deux':
-      console.log('cas deux')
-      // svgDoc.getElementById('tWindow1').setAttribute('fill', '#ff0000')
-      break
-    default:
-      console.log('défaut')
+  if (e.fragment.id === 'fare20') {
+    document.getElementById('fareAB').classList.add('active')
   }
-  */
+  if (e.fragment.id === 'travelAC') {
+    document.getElementById('noeudC').classList.add('hlab')
+    document.getElementById('AC').classList.add('hlab')
+  }
+  if (e.fragment.id === 'cAt12pm') {
+    document.getElementById('arrivalC').classList.add('active')
+  }
+  if (e.fragment.id === 'stricter') {
+    document.getElementById('departA2').classList.add('active')
+    document.getElementById('departA1').classList.add('dimmed')
+  }
+  if (e.fragment.id === 'fare40') {
+    document.getElementById('fareAC').classList.add('active')
+  }
+  if (e.fragment.id === 'vanA') {
+    console.log('fragment activé:', e.fragment.id)
+    moveBus.toA()
+  }
 })
 Reveal.addEventListener('fragmenthidden', function (e) {
-  sayHello()
-  console.log('fragment caché:', e.fragment.id)
+  // console.log('fragment complet:', e)
+  // console.log(
+  //   'fragment présent:', e.fragment.id,
+  //   'fragment précédent:', e.fragment.previousElementSibling.id
+  // )
+  // console.log('caché:', e)
   if (e.fragment.id === 'travelAB') {
     // document.getElementById('#noeudA').classList.remove("hlab")
     document.getElementById('noeudA').classList.remove('hlab')
@@ -86,8 +134,35 @@ Reveal.addEventListener('fragmenthidden', function (e) {
   if (e.fragment.id === 'bAt2pm') {
     document.getElementById('arrivalB').classList.remove('active')
   }
-  if (e.fragment.id === 'fastestAB') {
-    document.getElementById('timeAB').classList.remove('active')
+  if (e.fragment.id === 'cAt12pm') {
+    document.getElementById('arrivalC').classList.remove('active')
+  }
+  // if (e.fragment.id === 'fastestAB') {
+  //   document.getElementById('timeAB').classList.remove('active')
+  // }
+  if (e.fragment.id === 'ready3h') {
+    document.getElementById('departA1').classList.remove('active')
+  }
+  if (e.fragment.id === 'fare20') {
+    document.getElementById('fareAB').classList.remove('active')
+  }
+  if (e.fragment.id === 'travelAC') {
+    document.getElementById('noeudC').classList.remove('hlab')
+    document.getElementById('AC').classList.remove('hlab')
+  }
+  if (e.fragment.id === 'cAt12pm') {
+    document.getElementById('arrivalC').classList.remove('active')
+  }
+  if (e.fragment.id === 'stricter') {
+    document.getElementById('departA2').classList.remove('active')
+    document.getElementById('departA1').classList.remove('dimmed')
+  }
+  if (e.fragment.id === 'fare40') {
+    document.getElementById('fareAC').classList.remove('active')
+  }
+  if (e.fragment.id === 'vanA') {
+    console.log('fragment annulé:', e.fragment.id)
+    moveBus.toOut()
   }
 })
 // Reveal.addEventListener('monetat', function(e) {
