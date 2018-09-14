@@ -31,7 +31,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="900" height="500" version="1.1" viewBox="0 0 900 500">
           <defs>
           </defs>
-          <g id="graphReseau" transform="translate(200, 40)">
+          <g id="graphReseau" transform="translate(1000, 40)">
             <line class="connectLine" id="AB" x1="34"  y1="250" x2="466" y2="250" />
             <line class="connectLine" id="AC" x1="34"  y1="250" x2="250" y2="90"  />
             <line class="connectLine" id="AD" x1="34"  y1="250" x2="250" y2="410" />
@@ -66,7 +66,12 @@
             <g transform="translate(0, -12)">
               <text class="fares" id="fareAB" x="250" y="238">$20</text>
               <text class="fares" id="fareAC" x="150" y="150" transform="rotate(-36.7, 150, 150)">$40<tspan id="nbPassAC"> x 1</tspan></text>
-              <text class="fares" id="fareCB" x="360" y="155" transform="rotate( 36.7, 355, 155)">$(optimal offer)</text>
+              <text class="fares" id="fareCB" x="360" y="155" transform="rotate( 36.7, 355, 155)">$20 x 1</text>
+            </g>
+            <!-- potential gains -->
+            <g id="potentialInc"transform="translate(0, 35)">
+             <text class="potential" id="potentialAC" x="160" y="150" transform="rotate(-36.7, 150, 150)">$? x 6</text>
+             <text class="potential" id="potentialCB" x="350" y="150" transform="rotate( 36.7, 350, 150)">$? x 7</text>
             </g>
             <!-- horaires -->
             <g id="timeFrames" transform="translate(0, -50)">
@@ -75,12 +80,28 @@
               <text class="timeFrame" id="arrivalC" x="250" y="95">[ 12pm ]</text>
             </g>
             <text class="timeFrame" id="departA2" x="34" y="250" transform="translate(0, -70)">[ 11am, 11:15am ]</text>
+            <!-- estimate income -->
+            <text id="estIncome" x="372" y="90">$125.50</text>
+
+            <!-- animations 
+              from="380 40"
+              from="200 40"
+            -->
             <animateTransform
-              id="moveLeft"
+              id="moveOut"
               attributeName="transform"
               attributeType="XML"
               type="translate"
-              from="380 40"
+              to="1000 40"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="moveCenter"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
               to="200 40"
               dur="500ms"
               begin="indefinite"
@@ -91,57 +112,75 @@
               attributeName="transform"
               attributeType="XML"
               type="translate"
-              from="200 40"
               to="380 40"
               dur="500ms"
               begin="indefinite"
               fill="freeze"
               ></animateTransform>
-          </g>
-          <g id="minibus" transform="translate(-300, -100)">
-            <image x="10" y="10" width="300" height="300" xlink:href="../img/gustavorezende_bus_2.svg" />
-              <animateTransform
-                id="busIn"
-                attributeName="transform"
-                attributeType="XML"
-                type="translate"
-                to="0 -100"
-                dur="500ms"
-                begin="indefinite"
-                fill="freeze"
-                ></animateTransform>
-              <animateTransform
-                id="busOut"
-                attributeName="transform"
-                attributeType="XML"
-                type="translate"
-                to="-300 -100"
-                dur="500ms"
-                begin="indefinite"
-                fill="freeze"
-                ></animateTransform>
-              <animateTransform
-                id="busA"
-                attributeName="transform"
-                attributeType="XML"
-                type="scale"
-                from="1"
-                to="0.5"
-                dur="1000ms"
-                begin="indefinite"
-                fill="freeze"
-                ></animateTransform>
-              <animateTransform
-                id="bus2A"
-                attributeName="transform"
-                attributeType="XML"
-                type="translate"
-                from="0 -100"
-                to="200 150"
-                dur="1000ms"
-                begin="indefinite"
-                fill="freeze"
-                ></animateTransform>
+          </g> -->
+          <g id="minibus" transform="translate(-300, -50)">
+            <image x="10" y="10" width="140" height="140" xlink:href="../img/gustavorezende_bus_2.svg" />
+            <animateTransform
+              id="busIn"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="0 -50"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="busOut"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="-300 -100"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="busA"
+              attributeName="transform"
+              attributeType="XML"
+              type="scale"
+              from="1"
+              to="0.5"
+              dur="1000ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="bus2A"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="215 205"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="busC"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="550 -50"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="busB"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="760 100"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
           </g>
         </svg>
         <section data-transition="slide" data-state="frontpage">
@@ -154,32 +193,33 @@
           <p>(Hit space-bar, arrow-right or swipe)</p>
           <p>(Hit F to go full page, esc to browser size)</p>
         </section>
-        <section>
+        <section data-state="howItWorks">
           <h2>How it works:</h2>
           <p>Say we have a network of four cities with different travel times between each ones, as schematised on the graph below:</p>
         </section>
-        <section data-transition="slide-in fade-out" data-state="howItWorks">
+        <section data-transition="slide-in fade-out" data-state="traveller">
           <h3>You are traveller 1 ...</h3>
           <div class="d-flex" style="justify-content: space-between;">
-            <ul class="leftside">
+            <!-- <ul class="leftside"> -->
+            <ul>
               <li id="travelAB" class="fragment fade-in-then-semi-out">You need to travel from A to B next Thursday.</li>
               <li id="bAt2pm" class="fragment fade-in-then-semi-out">You need to be in B at 2:00 pm at the latest.</li>
               <!-- <li id="fastestAB" class="fragment fade-in-then-semi-out">The fastest possible travel time between A and B is one hour.</li> -->
               <li id="ready3h" class="fragment fade-in-then-semi-out">You can leave up to three hours earlier than necessary.</li>
               <li id="fare20" class="fragment fade-in-then-semi-out">You think that $20 would be a reasonable fare for this journey.</li>
-              <li id="keepOffer1" class="fragment fade-in-then-semi-out">You want to hold this offer until Wednesday at noon.</li>
+              <li id="keepOffer1" class="fragment fade-in-then-semi-out">You want to hold this offer until Wednesday<br>at noon.</li>
             </ul>
           </div>
         </section>
-        <section data-transition="fade-in fade-out" data-state="howItWorks">
+        <section data-transition="fade-in fade-out" data-state="traveller">
           <h3>Meanwhile, there is traveller 2 ...</h3>
           <div class="d-flex" style="justify-content: space-between;">
             <ul>
               <li id="travelAC" class="fragment fade-in-then-semi-out">Who also travel Thursday, but from A to C</li>
               <li id="cAt12pm" class="fragment fade-in-then-semi-out">He needs to be in C at 12:00pm</li>
               <li id="stricter"class="fragment fade-in-then-semi-out">His time schedule is stricter: he doesn't want to start his journey more than 1/4 hour earlier than necessary</li>
-              <li id="fare40" class="fragment leftside fade-in-then-semi-out">In order to meet this stricter requirement he is ready to bid up to $40 for this journey.</li>
-              <li id="keepOffer2" class="fragment leftside fade-in-then-semi-out">He also keeps his offer valid until Wednesday morning.</li>
+              <li id="fare40" class="fragment leftside fade-in-then-semi-out">In order to meet this stricter requirement,<br>he is ready to bid up to $40<br>for this journey.</li>
+              <li id="keepOffer2" class="fragment leftside fade-in-then-semi-out">He also keeps his offer valid until<br>Wednesday morning.</li>
             </ul>
           </div>
         </section>
@@ -189,6 +229,25 @@
            <li id="van8pass"    class="fragment fade-in-then-semi-out">She own a minivan of 8 passengers capacity.</li>
            <li id="vanA"        class="fragment fade-in-then-semi-out">She plan to be in A Thursday morning</li>
            <li id="potential60" class="fragment fade-in-then-semi-out">The system inform her of a potential deal of $60 with 2 passengers from A to B via C if she leaves from A between 11:00 am and 11:15 am</li>
+          </ul>
+        </section>
+        
+        <section data-transition="slide-in fade-out" data-state="potentialIncome">
+          <h3>For provider 1 ...</h3>
+          <ul>
+           <li id="slightlyBelow" class="fade-in-then-semi-out">The potential income of $60 is slightly below her cost </li>
+           <li id="remainingAC" class="fragment fade-in-then-semi-out"> but until the departure time, she could sell the six remaining seats from A to C...</li>
+           <li id="remainingCB" class="fragment fade-in-then-semi-out">.. and/or the 7 remaining seats from C to B.</li>
+           <li id="butHow" class="fragment fade-in-then-semi-out">However, Provider 1 does<br>not accept the contract yet:<br>she needs a reliable estimate<br>of her income before deciding.</li>
+          </ul>
+        </section>
+        <section data-transition="slide-in fade-out" data-state="potentialIncome">
+          <h3>Provider 1 income estimate</h3>
+          <ul>
+           <li id="estimate" class="fragment fade-in-then-semi-out">How many more travellers will jump in? How much will they pay?</li>
+           <li id="dataAnalysis" class="fragment fade-in-then-semi-out">Based on historical data, the system can determine what is the optimal fare for this time frame and for each segment...</li>
+           <li id="inform" class="fragment fade-in-then-semi-out">...and inform Provider 1 of her total income estimate.</li>
+
           </ul>
         </section>
 

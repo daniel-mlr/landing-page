@@ -3,9 +3,11 @@
 .reveal .slides>section {
   /* top: 0px; */
 }
+/* 
 .reveal .slides .leftside {
   margin-right: 50%;
 }
+*/
 
 /* SVG */
 
@@ -59,9 +61,10 @@ svg {
   stroke: #ff0000;
 }
 */
-.timeText {
-  /*
+#trspTimesUp.invisible,
+#trspTimesDown.invisible {
   display: none
+  /*
    */
 }
 
@@ -89,7 +92,23 @@ svg {
   text-anchor: middle;
   stroke: #939796;
   alignment-baseline: central;
-
+}
+.potential {
+  display: none;
+}
+/*
+#potentialAC.active,
+#potentialCB.active {
+*/
+.potential.active {
+  display: block;
+  font-size: 26px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  stroke: #939796;
+  alignment-baseline: central;
+  -webkit-animation: flashing 300ms 5 backwards;
+  animation: flashing 300ms 5 backwards;
 }
 .timeFrame {
   display: none;
@@ -143,11 +162,21 @@ svg {
 
 /* events page change */
 .frontpage #graphReseau {
-  display: none;
+  /*display: none; */
 }
-#noeudA.hlab, #noeudB.hlab, #AB.hlab, #AC.hlab, #noeudC.hlab{
+#noeudA.hlab, #noeudB.hlab, #AB.hlab, #AC.hlab, #noeudC.hlab, #CB.hlab {
   -webkit-animation: flashing 300ms 5 forwards;
   animation: flashing 300ms 5 forwards;
+}
+#nbPassAC.active {
+ display: inline; 
+  font-size: 26px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  stroke: #939796;
+  alignment-baseline: central;
+  -webkit-animation: flashing 300ms 5 backwards;
+  animation: flashing 300ms 5 backwards;
 }
 #arrivalB.active, #arrivalC.active {
   -webkit-animation: flashingGreen 300ms 5 forwards;
@@ -166,11 +195,16 @@ svg {
   border: 0;
   box-shadow: none;
 }
+/*
 #keepOffer1 {
   margin-top: 100px;
 }
+*/
 #keepOffer2 {
-  margin-top: 140px;
+  margin-top: 150px;
+}
+#butHow {
+  margin-top: 240px;
 }
 tspan {
   display: none;
@@ -178,3 +212,20 @@ tspan {
 .dimmed {
   opacity: 0.5;
 }
+.invisible {
+  display: none;
+}
+#estIncome {
+  display: none;
+}
+#estIncome.active {
+  display: block;
+  font-size: 40px;
+  font-style: italic;
+  fill: #939796;
+  -webkit-animation: flashing 300ms 5 backwards;
+  animation: flashing 300ms 5 backwards;
+}
+/*****************************
+ *     tests animation
+ *****************************/

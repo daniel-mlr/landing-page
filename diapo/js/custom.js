@@ -15,28 +15,35 @@ Reveal.configure({
 
 /* get the animations tags */
 var animateMoveRight = document.getElementById('moveRight')
-var animateMoveLeft = document.getElementById('moveLeft')
+var animateMoveCenter = document.getElementById('moveCenter')
+var animateMoveOut = document.getElementById('moveOut')
 
 /* module moveGraph */
 const moveGraph = (function () {
-  var _graphLocation = 'left'
+  var _graphLocation = ''
   return {
-    toLeft: function () {
-      (_graphLocation === 'right') && animateMoveLeft.beginElement()
-      _graphLocation = 'left'
+    toCenter: function () {
+      (_graphLocation !== 'center') && animateMoveCenter.beginElement()
+      _graphLocation = 'center'
     },
     toRight: function () {
-      (_graphLocation === 'left') && animateMoveRight.beginElement()
+      (_graphLocation !== 'right') && animateMoveRight.beginElement()
       _graphLocation = 'right'
+    },
+    toOut: function () {
+      (_graphLocation !== 'out') && animateMoveOut.beginElement()
+      _graphLocation = 'out'
     }
   }
 })()
 
 var animateBusIn = document.getElementById('busIn')
-var animateBusA = document.getElementById('busA')
 var animateBus2A = document.getElementById('bus2A')
 var animateBusOut = document.getElementById('busOut')
+var animateBusB = document.getElementById('busB')
+var animateBusC = document.getElementById('busC')
 
+/* module moveBus */
 const moveBus = (function () {
   var _busPosition = 'out'
   return {
@@ -45,28 +52,45 @@ const moveBus = (function () {
       _busPosition = 'in'
     },
     toA: function () {
-      (_busPosition !== 'a') && animateBus2A.beginElement() && animateBusA.beginElement()
-      // (_busPosition !== 'a') && animateBus2A.beginElement()
+      (_busPosition !== 'a') && animateBus2A.beginElement()
       _busPosition = 'a'
     },
     toOut: function () {
       (_busPosition !== 'out') && animateBusOut.beginElement()
       _busPosition = 'out'
+    },
+    toB: function () {
+      (_busPosition !== 'b') && animateBusB.beginElement()
+      _busPosition = 'b'
+    },
+    toC: function () {
+      (_busPosition !== 'c') && animateBusC.beginElement()
+      _busPosition = 'c'
     }
   }
 })()
 
 Reveal.addEventListener('slidechanged', function (e) {
   var classes = document.documentElement.classList
-  if (classes.contains('howItWorks')) {
+  if (classes.contains('frontpage')) {
+    moveGraph.toOut()
+    moveBus.toOut()
+  } else if (classes.contains('howItWorks')) {
+    moveGraph.toCenter()
+    moveBus.toOut()
+  } else if (classes.contains('traveller')) {
     moveGraph.toRight()
     moveBus.toOut()
   } else if (classes.contains('offerSide')) {
     moveGraph.toRight()
-    moveBus.toIn()
-    console.log('moveBus.toIn() appelé')
+    document.getElementById('trspTimesUp').classList.remove('invisible')
+    document.getElementById('trspTimesDown').classList.remove('invisible')
+  } else if (classes.contains('potentialIncome')) {
+    moveGraph.toRight()
+    document.getElementById('trspTimesUp').classList.add('invisible')
+    document.getElementById('trspTimesDown').classList.add('invisible')
   } else {
-    moveGraph.toLeft()
+    moveGraph.toOut()
     moveBus.toOut()
   }
   // switch (true) {
@@ -113,9 +137,33 @@ Reveal.addEventListener('fragmentshown', function (e) {
   if (e.fragment.id === 'fare40') {
     document.getElementById('fareAC').classList.add('active')
   }
+  if (e.fragment.id === 'van8pass') {
+    moveBus.toIn()
+  }
   if (e.fragment.id === 'vanA') {
-    console.log('fragment activé:', e.fragment.id)
     moveBus.toA()
+  }
+  if (e.fragment.id === 'potential60') {
+    document.getElementById('AB').classList.remove('hlab')
+    document.getElementById('CB').classList.add('hlab')
+    document.getElementById('nbPassAC').classList.add('active')
+    document.getElementById('fareCB').classList.add('active')
+    document.getElementById('fareAB').classList.remove('active')
+  }
+  if (e.fragment.id === 'remainingAC') {
+    moveBus.toC()
+    document.getElementById('potentialAC').classList.add('active')
+  }
+  if (e.fragment.id === 'remainingCB') {
+    moveBus.toB()
+    document.getElementById('potentialCB').classList.add('active')
+  }
+  if (e.fragment.id === 'dataAnalysis') {
+    document.getElementById('potentialAC').textContent = '$[5-15] x [3-5]'
+    document.getElementById('potentialCB').textContent = '$[5-12] x [2-4]'
+  }
+  if (e.fragment.id === 'inform') {
+    document.getElementById('estIncome').classList.add('active')
   }
 })
 Reveal.addEventListener('fragmenthidden', function (e) {
@@ -160,9 +208,34 @@ Reveal.addEventListener('fragmenthidden', function (e) {
   if (e.fragment.id === 'fare40') {
     document.getElementById('fareAC').classList.remove('active')
   }
+  if (e.fragment.id === 'van8pass') {
+    moveBus.toOut()
+  }
   if (e.fragment.id === 'vanA') {
     console.log('fragment annulé:', e.fragment.id)
-    moveBus.toOut()
+    moveBus.toIn()
+  }
+  if (e.fragment.id === 'potential60') {
+    document.getElementById('AB').classList.add('hlab')
+    document.getElementById('CB').classList.remove('hlab')
+    document.getElementById('nbPassAC').classList.remove('active')
+    document.getElementById('fareCB').classList.remove('active')
+    document.getElementById('fareAB').classList.add('active')
+  }
+  if (e.fragment.id === 'remainingAC') {
+    moveBus.toA()
+    document.getElementById('potentialAC').classList.remove('active')
+  }
+  if (e.fragment.id === 'remainingCB') {
+    moveBus.toC()
+    document.getElementById('potentialCB').classList.remove('active')
+  }
+  if (e.fragment.id === 'dataAnalysis') {
+    document.getElementById('potentialAC').textContent = '$? x 6'
+    document.getElementById('potentialCB').textContent = '$? x 7'
+  }
+  if (e.fragment.id === 'inform') {
+    document.getElementById('estIncome').classList.remove('active')
   }
 })
 // Reveal.addEventListener('monetat', function(e) {
