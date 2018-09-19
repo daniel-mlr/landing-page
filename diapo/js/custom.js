@@ -7,7 +7,8 @@
 Reveal.initialize({
   margin: 0.01,
   center: false,
-  slideNumber: true
+  slideNumber: true,
+  overview: true
 })
 Reveal.configure({
   slideNumber: 'c/t'
@@ -17,6 +18,7 @@ Reveal.configure({
 var animateMoveRight = document.getElementById('moveRight')
 var animateMoveCenter = document.getElementById('moveCenter')
 var animateMoveOut = document.getElementById('moveOut')
+var animateMoveOutLeft = document.getElementById('moveOutLeft')
 
 /* module moveGraph */
 const moveGraph = (function () {
@@ -33,6 +35,16 @@ const moveGraph = (function () {
     toOut: function () {
       (_graphLocation !== 'out') && animateMoveOut.beginElement()
       _graphLocation = 'out'
+    },
+    fadeOut: function () {
+      // pass
+    },
+    fadeIn: function () {
+      // pass
+    },
+    toOutLeft: function () {
+      (_graphLocation !== 'outLeft') && animateMoveOutLeft.beginElement()
+      _graphLocation = 'outLeft'
     }
   }
 })()
@@ -69,28 +81,56 @@ const moveBus = (function () {
     }
   }
 })()
+var previousSlideIx = 0
 
 Reveal.addEventListener('slidechanged', function (e) {
+  // console.log('index: ', Reveal.getIndices())
   var classes = document.documentElement.classList
   if (classes.contains('frontpage')) {
     moveGraph.toOut()
     moveBus.toOut()
+    previousSlideIx = Reveal.getIndices().h
   } else if (classes.contains('howItWorks')) {
     moveGraph.toCenter()
     moveBus.toOut()
+    previousSlideIx = Reveal.getIndices().h
   } else if (classes.contains('traveller')) {
     moveGraph.toRight()
     moveBus.toOut()
+    document.getElementById('portable').classList.remove('active')
+    previousSlideIx = Reveal.getIndices().h
+  } else if (classes.contains('app')) {
+    moveGraph.toOut()
+    moveBus.toOut()
+    document.getElementById('portable').classList.add('active')
+    if (previousSlideIx === 4) {
+      document.getElementById('scr1').classList.remove('active')
+      document.getElementById('scr2').classList.add('active')
+      document.getElementById('scr3').classList.remove('active')
+      // console.log('previous est 4')
+    } else {
+      // console.log('previous n\'est pas 4')
+      document.getElementById('scr1').classList.add('active')
+      document.getElementById('scr2').classList.remove('active')
+      document.getElementById('scr3').classList.remove('active')
+    }
+    previousSlideIx = Reveal.getIndices().h
+  } else if (classes.contains('app2')) {
+    moveGraph.toOut()
+    moveBus.toOut()
+    document.getElementById('portable').classList.add('active')
+    document.getElementById('scr3').classList.add('active')
   } else if (classes.contains('offerSide')) {
     moveGraph.toRight()
     document.getElementById('trspTimesUp').classList.remove('invisible')
     document.getElementById('trspTimesDown').classList.remove('invisible')
+    document.getElementById('portable').classList.remove('active')
   } else if (classes.contains('potentialIncome')) {
     moveGraph.toRight()
     document.getElementById('trspTimesUp').classList.add('invisible')
     document.getElementById('trspTimesDown').classList.add('invisible')
   } else {
-    moveGraph.toOut()
+    moveGraph.toOutLeft()
     moveBus.toOut()
   }
   // switch (true) {
@@ -106,6 +146,7 @@ Reveal.addEventListener('slidechanged', function (e) {
   // }
 })
 Reveal.addEventListener('fragmentshown', function (e) {
+  console.log('montré:', e.fragment.id)
   if (e.fragment.id === 'travelAB') {
     document.getElementById('noeudA').classList.add('hlab')
     document.getElementById('noeudB').classList.add('hlab')
@@ -136,6 +177,7 @@ Reveal.addEventListener('fragmentshown', function (e) {
   }
   if (e.fragment.id === 'fare40') {
     document.getElementById('fareAC').classList.add('active')
+    // document.getElementById('nbPassAC').classList.add('active')
   }
   if (e.fragment.id === 'van8pass') {
     moveBus.toIn()
@@ -159,11 +201,17 @@ Reveal.addEventListener('fragmentshown', function (e) {
     document.getElementById('potentialCB').classList.add('active')
   }
   if (e.fragment.id === 'dataAnalysis') {
+    moveBus.toB()
     document.getElementById('potentialAC').textContent = '$[5-15] x [3-5]'
     document.getElementById('potentialCB').textContent = '$[5-12] x [2-4]'
   }
   if (e.fragment.id === 'inform') {
+    moveBus.toB()
     document.getElementById('estIncome').classList.add('active')
+  }
+  if (e.fragment.id === 'noOfferAB1') {
+    document.getElementById('scr1').classList.remove('active')
+    document.getElementById('scr2').classList.add('active')
   }
 })
 Reveal.addEventListener('fragmenthidden', function (e) {
@@ -172,7 +220,7 @@ Reveal.addEventListener('fragmenthidden', function (e) {
   //   'fragment présent:', e.fragment.id,
   //   'fragment précédent:', e.fragment.previousElementSibling.id
   // )
-  // console.log('caché:', e)
+  // console.log('caché:', e.fragment.id)
   if (e.fragment.id === 'travelAB') {
     // document.getElementById('#noeudA').classList.remove("hlab")
     document.getElementById('noeudA').classList.remove('hlab')
@@ -212,7 +260,6 @@ Reveal.addEventListener('fragmenthidden', function (e) {
     moveBus.toOut()
   }
   if (e.fragment.id === 'vanA') {
-    console.log('fragment annulé:', e.fragment.id)
     moveBus.toIn()
   }
   if (e.fragment.id === 'potential60') {
@@ -231,14 +278,16 @@ Reveal.addEventListener('fragmenthidden', function (e) {
     document.getElementById('potentialCB').classList.remove('active')
   }
   if (e.fragment.id === 'dataAnalysis') {
+    moveBus.toB()
     document.getElementById('potentialAC').textContent = '$? x 6'
     document.getElementById('potentialCB').textContent = '$? x 7'
   }
   if (e.fragment.id === 'inform') {
+    moveBus.toB()
     document.getElementById('estIncome').classList.remove('active')
   }
+  if (e.fragment.id === 'noOfferAB1') {
+    document.getElementById('scr1').classList.add('active')
+    document.getElementById('scr2').classList.remove('active')
+  }
 })
-// Reveal.addEventListener('monetat', function(e) {
-// utile seulement pour ajouter foctionalités supplémentaires
-// généralement mettre data-state="monetat" dans la section suffit.
-// }, false );

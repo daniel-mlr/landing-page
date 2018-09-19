@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/theme/solarized_dm.css">
     <!-- <link rel="stylesheet" href="css/theme/sky.css"> -->
     <!-- <link rel="stylesheet" href="css/theme/solarized.css"> -->
-    <link rel="stylesheet" href="css/custom.css?6">
+    <link rel="stylesheet" href="css/custom.css?11">
 
     <!-- Theme used for syntax highlighting of code -->
     <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
@@ -83,7 +83,7 @@
             <!-- estimate income -->
             <text id="estIncome" x="372" y="90">$125.50</text>
 
-            <!-- animations 
+            <!-- animations
               from="380 40"
               from="200 40"
             -->
@@ -93,6 +93,16 @@
               attributeType="XML"
               type="translate"
               to="1000 40"
+              dur="500ms"
+              begin="indefinite"
+              fill="freeze"
+              ></animateTransform>
+            <animateTransform
+              id="moveOutLeft"
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              to="-600 40"
               dur="500ms"
               begin="indefinite"
               fill="freeze"
@@ -117,7 +127,7 @@
               begin="indefinite"
               fill="freeze"
               ></animateTransform>
-          </g> -->
+          </g>
           <g id="minibus" transform="translate(-300, -50)">
             <image x="10" y="10" width="140" height="140" xlink:href="../img/gustavorezende_bus_2.svg" />
             <animateTransform
@@ -137,17 +147,6 @@
               type="translate"
               to="-300 -100"
               dur="500ms"
-              begin="indefinite"
-              fill="freeze"
-              ></animateTransform>
-            <animateTransform
-              id="busA"
-              attributeName="transform"
-              attributeType="XML"
-              type="scale"
-              from="1"
-              to="0.5"
-              dur="1000ms"
               begin="indefinite"
               fill="freeze"
               ></animateTransform>
@@ -182,7 +181,106 @@
               fill="freeze"
               ></animateTransform>
           </g>
+          <g id="portable" transform="translate(500, 0)">
+            <rect x="0" y="0" rx="25" ry="25" width="300" height="480" fill="grey"/>
+            <rect x="25" y="35" width="250" height="390" fill="white"/>
+            <circle cx="150" cy="452" r="20" fill="white" />
+            <g id="scr1" transform="translate(50, 50)">
+              <rect class="scrHeader" x="-25" y="-14" width="250" height="50" />
+              <text class="scrHeader" x="0" y="20">
+                <tspan class="hdrPrompt">From</tspan>
+                <tspan x="80" y="20">A</tspan>
+                <tspan class="hdrPrompt" x="120">To</tspan>
+                <tspan x="170" y="20">B</tspan>
+              </text>
+              <rect class="scrSubHeader" x="-25" y="30" width="250" height="50" />
+              <text class="scrSubHeader" x="0" y="60">
+                On Thu. Dep. bet. 10am and 1pm
+              </text>
+              <text class="listing" x="0" y="100">
+                <tspan class="listHeader">Path</tspan>
+                <tspan class="listHeader" x="50">Provider</tspan>
+                <tspan class="listHeader" x="160">Price</tspan>
+              </text>
+              <text class="listing" x="0" y="130">
+                <tspan >Direct</tspan>
+                <tspan x="80">---</tspan>
+                <tspan x="165">---</tspan>
+              </text>
+              <text class="listing" x="0" y="160">
+                <tspan >Via C</tspan>
+                <tspan x="80">---</tspan>
+                <tspan x="165">---</tspan>
+              </text>
+              <text class="listing" x="0" y="190">
+                <tspan >Via D</tspan>
+                <tspan x="80">---</tspan>
+                <tspan x="165">---</tspan>
+              </text>
+              <rect class="button" x="25" y="250" rx="15" ry="15" width="149" height="40"></rect>
+              <text class="button" x="40" y="278">Enter new bid</text>
+            </g>
+            <g id="scr2" transform="translate(50, 50)">
+              <rect class="scrHeader" x="-25" y="-14" width="250" height="50" />
+              <text class="scrHeader" x="0" y="20">
+                <tspan class="hdrPrompt">Enter new bid</tspan>
+              </text>
+              <rect class="scrSubHeader" x="-25" y="30" width="250" height="50" />
+              <text class="scrSubHeader" x="0" y="60">
+                From A to B On Thursday.
+              </text>
+
+              <text class="listing" x="0" y="120">Arrival Time</text>
+              <rect class="input" x="125" y="100" height="30" width="80"></rect>
+              <text class="input" x="133" y="121">2:00pm</text>
+
+              <text class="listing" x="0" y="160">Departure</text>
+              <text class="listing" x="0" y="182">between</text>
+              <rect class="input" x="125" y="150" height="30" width="80"></rect>
+              <text class="input" x="125" y="170">10:00am</text>
+              <text class="listing" x="0" y="210">and</text>
+              <rect class="input" x="125" y="190" height="30" width="80"></rect>
+              <text class="input" x="133" y="211">1:00pm</text>
+
+              <text class="listing" x="0" y="260">Bid</text>
+              <rect class="input" x="125" y="240" height="30" width="80"></rect>
+              <text class="input" x="138" y="261">$20</text>
+
+              <rect class="button" x="25" y="310" rx="15" ry="15" width="149" height="40"></rect>
+              <text class="button" x="75" y="338">Save</text>
+            </g>
+            <g id="scr3" transform="translate(50, 50)">
+              <rect class="scrHeader" x="-25" y="-14" width="250" height="50" />
+              <text class="scrHeader" x="0" y="20">
+                <tspan class="hdrPrompt">Enter new bid</tspan>
+              </text>
+              <rect class="scrSubHeader" x="-25" y="30" width="250" height="50" />
+              <text class="scrSubHeader" x="0" y="60">
+                From A to C On Thursday.
+              </text>
+
+              <text class="listing" x="0" y="120">Arrival Time</text>
+              <rect class="input" x="125" y="100" height="30" width="80"></rect>
+              <text class="input" x="127" y="121">12:00pm</text>
+
+              <text class="listing" x="0" y="160">Departure</text>
+              <text class="listing" x="0" y="182">between</text>
+              <rect class="input" x="125" y="150" height="30" width="80"></rect>
+              <text class="input" x="127" y="170">11:00am</text>
+              <text class="listing" x="0" y="210">and</text>
+              <rect class="input" x="125" y="190" height="30" width="80"></rect>
+              <text class="input" x="127" y="211">11:15am</text>
+
+              <text class="listing" x="0" y="260">Bid</text>
+              <rect class="input" x="125" y="240" height="30" width="80"></rect>
+              <text class="input" x="138" y="261">$40</text>
+
+              <rect class="button" x="25" y="310" rx="15" ry="15" width="149" height="40"></rect>
+              <text class="button" x="75" y="338">Save</text>
+            </g>
+          </g>
         </svg>
+
         <section data-transition="slide" data-state="frontpage">
           <img id="logo" src="https://res.cloudinary.com/danielmeilleurimg/image/upload/v1532337024/landing_page/logo1.svg.png"
           alt="Logo"
@@ -211,6 +309,16 @@
             </ul>
           </div>
         </section>
+        <section data-transition="fade-in fade-out" data-state="app">
+          <h3>You are traveller 1 ...</h3>
+          <div class="d-flex" style="justify-content: space-between;">
+            <!-- <ul class="leftside"> -->
+            <ul class="leftside">
+              <li id="noOfferAB" class="fade-in-then-semi-out">There is currently no ongoing offer from A to B for this departure time range, so ...</li>
+              <li id="noOfferAB1" class="fragment fade-in-then-semi-out">... you key-in your bid</li>
+            </ul>
+          </div>
+        </section>
         <section data-transition="fade-in fade-out" data-state="traveller">
           <h3>Meanwhile, there is traveller 2 ...</h3>
           <div class="d-flex" style="justify-content: space-between;">
@@ -223,6 +331,15 @@
             </ul>
           </div>
         </section>
+        <section data-transition="none" data-state="app2">
+          <h3>Meanwhile, there is traveller 2 ...</h3>
+          <div class="d-flex" style="justify-content: space-between;">
+            <!-- <ul class="leftside"> -->
+            <ul class="leftside">
+              <li id="keyInAC" class="fade-in-then-semi-out">Then, he also key in his plan and bid.</li>
+            </ul>
+          </div>
+        </section>
         <section data-transition="slide-in fade-out" data-state="offerSide">
           <h3>On the other side, here is provider 1 ...</h3>
           <ul>
@@ -231,7 +348,7 @@
            <li id="potential60" class="fragment fade-in-then-semi-out">The system inform her of a potential deal of $60 with 2 passengers from A to B via C if she leaves from A between 11:00 am and 11:15 am</li>
           </ul>
         </section>
-        
+
         <section data-transition="slide-in fade-out" data-state="potentialIncome">
           <h3>For provider 1 ...</h3>
           <ul>
@@ -245,21 +362,90 @@
           <h3>Provider 1 income estimate</h3>
           <ul>
            <li id="estimate" class="fragment fade-in-then-semi-out">How many more travellers will jump in? How much will they pay?</li>
-           <li id="dataAnalysis" class="fragment fade-in-then-semi-out">Based on historical data, the system can determine what is the optimal fare for this time frame and for each segment...</li>
+           <li id="dataAnalysis" class="fragment fade-in-then-semi-out">Based on historical and contextual data, the system can estimate what is the optimal fare for this time frame and for each segment...</li>
            <li id="inform" class="fragment fade-in-then-semi-out">...and inform Provider 1 of her total income estimate.</li>
 
           </ul>
         </section>
 
+        <section id="demandListing">
+          <h3>Providers Demands Listing</h3>
+          <p class="slide">So, here is how the global state of demand appear on Provider 1's dispatch terminal</p>
+          <div class="demandTerminal">
+            <table>
+             <tr>
+              <th>Depart Time</th>
+              <th>Income min</th>
+              <th>Expected</th>
+              <th>Route</th>
+             </tr>
+             <tr>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+             </tr>
+             <tr>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+             </tr>
+             <tr>
+              <td>[11:00 - 11:15]</td>
+              <td>$60</td>
+              <td>$125.50</td>
+              <td>A - C - B</td>
+             </tr>
+             <tr>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+              <td> --- </td>
+             </tr>
+            </table>
+          </div>
+          <p class="fragment fade-in-then-semi-out">
+            The same state of demand appears differently on other registered
+            providers screen according to their seat capacity.
+          </p>
+          <p class="fragment">
+            Let's say Provider 1 grab the route and choose 11:10 as departure time
+          </p>
+        </section>
+        <section id="p1Accept">
+          <h3>Provider 1 confirm departure at 11:10am</h3>
+          <ul>
+            <li class="fragment">
+              Other providers terminal are changed accordingly.  This ride offer
+              disappears from all demand listing, until new passengers show up
+              for the same departure time and destination and Provider 1 is
+              filled-up.
+            </li>
+            <li class="fragment">
+              At this moment, initial bidders receive a message confirming their
+              seat and departure time and the fare is taken from their credit.
+            </li>
+            <li class="fragment">
+              Then, other passengers can join in at the fare decided by Provider
+              1 (and suggested by the system).
+            </li>
+            <li class="fragment">
+              Any passenger, either original bidders or late comers, can list
+              their place to sell at their chosen price if they need to change
+              their plans.
+            </li>
+          </ul>
+        </section>
         <section data-transition="slide-in slide-out">
-          <h2>Fin</h2>
-          <p>C'est bien la fin !</p>
+          <h2>End</h2>
+          <p>Any comments? Suggestions?</p>
         </section>
       </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js?v=1"></script>
   </body>
 </html>

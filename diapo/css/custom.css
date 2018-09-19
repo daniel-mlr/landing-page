@@ -3,11 +3,9 @@
 .reveal .slides>section {
   /* top: 0px; */
 }
-/* 
 .reveal .slides .leftside {
   margin-right: 50%;
 }
-*/
 
 /* SVG */
 
@@ -168,8 +166,11 @@ svg {
   -webkit-animation: flashing 300ms 5 forwards;
   animation: flashing 300ms 5 forwards;
 }
+#nbPassAC {
+  display: none;
+}
 #nbPassAC.active {
- display: inline; 
+  display: inline;
   font-size: 26px;
   font-family: Helvetica, Arial, sans-serif;
   text-anchor: middle;
@@ -225,6 +226,81 @@ tspan {
   fill: #939796;
   -webkit-animation: flashing 300ms 5 backwards;
   animation: flashing 300ms 5 backwards;
+}
+#portable {
+  display: none;
+}
+#portable.active {
+  display: block;
+}
+#scr1, #scr2, #scr3 {
+  display: none;
+  font-size: 24px;
+}
+#scr1.active, #scr2.active, #scr3.active {
+  display: block;
+}
+
+tspan {
+  display: inherit;
+  font-size: inherit;
+}
+rect.scrHeader {
+  fill: #C1C1C1;
+}
+text.scrHeader {
+  font-size: 24px;
+}
+text.scrHeader tspan {
+  font-size: 32px;
+}
+text.scrHeader tspan.hdrPrompt {
+  font-size: 24px;
+  fill: white;
+}
+rect.scrSubHeader {
+  fill: #979dba;
+}
+text.scrSubHeader {
+  font-size: 15px;
+  fill: white;
+  text-decoration: underline;
+}
+text.scrSubHeader {
+  font-size: 15px;
+}
+text.scrSubHeader tspan.hdrPrompt {
+  font-size: 24px;
+  fill: white;
+}
+text.listing {
+  font-size: 20px;
+}
+text.listing tspan.listHeader {
+  text-decoration: underline;
+  font-weight: bold;
+}
+rect.button {
+  fill: #5f99a8;
+}
+text.button {
+  font-size: 20px;
+  fill: white;
+}
+rect.input {
+  stroke-width: 2;
+  stroke: #222;
+  fill: white;
+}
+text.input {
+  font-size: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-anchor: start;
+}
+div.demandTerminal {
+  border: 4px solid black;
+  margin: 30px 50px;
+  border-radius: 20px;
 }
 /*****************************
  *     tests animation
